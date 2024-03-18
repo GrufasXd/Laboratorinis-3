@@ -92,6 +92,7 @@ int readInt(const string& prompt) {
         int rakt;
         cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
         cin >> rakt;
+        auto start = high_resolution_clock::now();
         while (inf >> tempstud.vardas >> tempstud.pavarde) {
         tempstud.nd.clear(); // Clear the vector before resizing
         tempstud.nd.resize(15);
@@ -135,7 +136,11 @@ int readInt(const string& prompt) {
         galutrezg.push_back(galutinis);
         }
         }
+        auto end = high_resolution_clock::now();
+        duration<double> diff = end-start;
+        cout << "Nuskaityti faila ir surusiuoti uztruko " << diff.count() << " s" << endl;
         inf.close();
+        auto start2 = high_resolution_clock::now();
         ofstream of("vargsai.txt");
         of << setw(ilgis) << left << "Pavarde" << " " << setw(ilgis) << left << "Vardas" << "     " << setw(ilgis) << left << "Galutinis (Vid. ) / Galutinis (Med. )" << endl;
         of << "..................................................................." << endl;
@@ -166,6 +171,9 @@ int readInt(const string& prompt) {
         }
         }
         oif.close();
+        auto end2 = high_resolution_clock::now();
+        duration<double> diff2 = end2-start2;
+        cout << "Ivesti studentus i faila uztruko " << diff2.count() << " s" << endl;
 }
     void skaityti(vector<studentas>& students, vector<double>& galrez, vector<double>& median) {
     int failas;
