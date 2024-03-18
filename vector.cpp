@@ -8,6 +8,7 @@ using namespace std;
 using namespace std::chrono;
 int main() {
     srand(time(nullptr));
+    auto startg = high_resolution_clock::now();
     vector<studentas> students;
     vector<studentas> vargsai;
     vector<studentas> galva;
@@ -15,15 +16,35 @@ int main() {
     vector<double> median;
     int kodas;
     int rusis;
+    auto start = high_resolution_clock::now();
     createfile("failas1.txt", 1000);
+    auto end = high_resolution_clock::now();
+    duration<double> diff = end-start;
+    cout << "Sukurti 1000 elementu faila uztruko " << diff.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas1.txt");
+    auto start1 = high_resolution_clock::now();
     createfile("failas2.txt", 10000);
+    auto end1 = high_resolution_clock::now();
+    duration<double> diff1 = end1-start1;
+    cout << "Sukurti 10000 elementu faila uztruko " << diff1.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas2.txt");
+    auto start2 = high_resolution_clock::now();
     createfile("failas3.txt", 100000);
+    auto end2 = high_resolution_clock::now();
+    duration<double> diff2 = end2-start2;
+    cout << "Sukurti 100000 elementu faila uztruko " << diff2.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas3.txt");
+    auto start3 = high_resolution_clock::now();
     createfile("failas4.txt", 1000000);
+    auto end3 = high_resolution_clock::now();
+    duration<double> diff3 = end3-start3;
+    cout << "Sukurti 1000000 elementu faila uztruko " << diff3.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas4.txt");
+    auto start4 = high_resolution_clock::now();
     createfile("failas5.txt", 10000000);
+    auto end4 = high_resolution_clock::now();
+    duration<double> diff4 = end4-start4;
+    cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas5.txt");
     try {
         cout << "Ar norite duomenis generuoti / rasyti ranka - 1" << endl << "Ar norite duomenis skaityti is failo - 2" << endl;
@@ -55,5 +76,8 @@ int main() {
     } catch (const char* msg) {
         cerr << "Klaida: " << msg << endl;
     }
+    auto endg = high_resolution_clock::now();
+    duration<double> diffg = endg-startg;
+    cout << "Visas programos laikas " << diffg.count() << " s" << endl;
     return 0;
 }
