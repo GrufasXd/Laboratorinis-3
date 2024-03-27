@@ -40,44 +40,60 @@ int main() {
     duration<double> diff3 = end3-start3;
     cout << "Sukurti 1000000 elementu faila uztruko " << diff3.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas4.txt");
-    auto start4 = high_resolution_clock::now();
-    createfile("failas5.txt", 10000000);
-    auto end4 = high_resolution_clock::now();
-    duration<double> diff4 = end4-start4;
-    cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas5.txt");
-    try {
-        cout << "Ar norite duomenis generuoti / rasyti ranka - 1" << endl << "Ar norite duomenis skaityti is failo - 2" << endl;
-        cin >> kodas;
+    //auto start4 = high_resolution_clock::now();
+    //createfile("failas5.txt", 10000000);
+    //auto end4 = high_resolution_clock::now();
+    //duration<double> diff4 = end4-start4;
+    //cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
+    //studrus(students, galrez, median, vargsai, galva, "failas5.txt");
+     bool correctInput = false;
 
-        if (kodas != 1 && kodas != 2) {
-            throw "Neteisingas ivesties pasirinkimas.";
-        }
+    while (!correctInput) {
+        try {
+            cout << "Ar norite duomenis generuoti / rasyti ranka - 1" << endl << "Ar norite duomenis skaityti is failo - 2" << endl;
+            cin >> kodas;
 
-        if (kodas == 1) {
-            rasytiranka(students, galrez, median);
-        } else if (kodas == 2) {
-            skaitymas(students, galrez, median);
-            int slap;
-            try {
-                cout << "Ar duomenis spausdinti ekrane - 1" << endl << "Ar duomenis spausdint faile - 2" << endl;
-                cin >> slap;
-                if (slap == 1)
-                    spausdint(students, galrez, median);
-                else if (slap == 2)
-                    spausdintfaila(students, galrez, median);
-                else
-                    throw "Neteisingas pasirinkimas duomenu spausdinimui.";
-            } catch (const char* msg) {
-                cerr << msg << endl;
-                return 1;
+            if (kodas != 1 && kodas != 2) {
+                throw "Neteisingas ivesties pasirinkimas.";
             }
+            correctInput = true;
+
+            if (kodas == 1) {
+                rasytiranka(students, galrez, median);
+            } else if (kodas == 2) {
+                skaitymas(students, galrez, median);
+                int slap;
+                bool correctPrintInput = false;
+
+                while (!correctPrintInput) {
+                    try {
+                        cout << "Ar duomenis spausdinti ekrane - 1" << endl << "Ar duomenis spausdint faile - 2" << endl;
+                        cin >> slap;
+
+                        if (slap == 1 || slap == 2) {
+                            correctPrintInput = true;
+                            if (slap == 1)
+                                spausdint(students, galrez, median);
+                            else if (slap == 2)
+                                spausdintfaila(students, galrez, median);
+                        } else {
+                            throw "Neteisingas pasirinkimas duomenu spausdinimui.";
+                        }
+                    } catch (const char* msg) {
+                        cerr << msg << endl;
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    }
+                }
+            }
+        } catch (const char* msg) {
+            cerr << "Klaida: " << msg << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-    } catch (const char* msg) {
-        cerr << "Klaida: " << msg << endl;
     }
     auto endg = high_resolution_clock::now();
     duration<double> diffg = endg-startg;
-    cout << "Visas programos laikas " << diffg.count() << " s" << endl;
+    cout << "Visas kodas uztruko " << diffg.count() << " s" << endl;
     return 0;
 }
