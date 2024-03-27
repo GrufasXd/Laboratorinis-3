@@ -76,7 +76,7 @@ int readInt(const string& prompt) {
         // Compare the numeric parts
         return intA > intB;
     }
-    void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename)
+ void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename)
     {
         const int ilgis = 20;
         vector<double> galutrez1;
