@@ -24,7 +24,9 @@ Ar duomenis spausdint faile - 2)
 Pasirinkus 1 arba 2 programa spausdins duomenis ekrane arba faile.
 Programos pabaigoje rodomas visas programos laikas.
 
-<img width="236" alt="proof2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/3e210d0a-e14d-4cd2-a2b0-25d87520d2ea">
-<img width="296" alt="proof1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/ed41de11-f4f6-4301-a569-c35d41e62466">
-<img width="265" alt="proof" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/bb2aebe3-f9d1-404c-ba26-9e955ebaf473">
+<img width="265" alt="proof" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/1c02cf5d-a1a9-46ec-a37f-170a1775caff">
+<img width="296" alt="proof1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/b073c55a-73a1-45a2-89d1-1132881889f8">
+<img width="236" alt="proof2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/7e2e2a53-e3a2-44e3-9d5b-c939b893f8d0">
+
+
 
