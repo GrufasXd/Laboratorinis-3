@@ -40,12 +40,12 @@ int main() {
     duration<double> diff3 = end3-start3;
     cout << "Sukurti 1000000 elementu faila uztruko " << diff3.count() << " s" << endl;
     studrus(students, galrez, median, vargsai, galva, "failas4.txt");
-    //auto start4 = high_resolution_clock::now();
-    //createfile("failas5.txt", 10000000);
-    //auto end4 = high_resolution_clock::now();
-    //duration<double> diff4 = end4-start4;
-    //cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
-    //studrus(students, galrez, median, vargsai, galva, "failas5.txt");
+    auto start4 = high_resolution_clock::now();
+    createfile("failas5.txt", 10000000);
+    auto end4 = high_resolution_clock::now();
+    duration<double> diff4 = end4-start4;
+    cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
+    studrus(students, galrez, median, vargsai, galva, "failas5.txt");
      bool correctInput = false;
 
     while (!correctInput) {
