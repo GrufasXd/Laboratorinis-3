@@ -76,25 +76,65 @@ int readInt(const string& prompt) {
         // Compare the numeric parts
         return intA > intB;
     }
- void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename)
-    {
-        const int ilgis = 20;
-        vector<double> galutrez1;
-        vector<double> galutrez2;
-        vector<double> galutrezg;
-        vector<double> median1;
-        vector<double> median2;
-        vector<double> mediang;
-        ifstream inf(filename);
-        string firstline;
-        getline(inf, firstline);
-        studentas tempstud;
-        int rakt;
-        cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
-        cin >> rakt;
-        auto start = high_resolution_clock::now();
-        while (inf >> tempstud.vardas >> tempstud.pavarde) {
-        tempstud.nd.clear(); // Clear the vector before resizing
+void clearFiles() {
+    ofstream of("vargsai.txt", ios::trunc);
+    of.close();
+    ofstream oif("galva.txt", ios::trunc);
+    oif.close();
+}
+
+void processChunk(vector<studentas>& students, vector<double>& galutrez1, vector<double>& galutrez2, vector<double>& mediang, vector<double>& median1, vector<double>& median2, vector<double>& galutrezg, vector<studentas>& vargsai, vector<studentas>& galva, int rakt, int ilgis, int chunkIndex) {
+    ofstream of("vargsai.txt", ios::app);
+    of << fixed << setprecision(2);
+    for (size_t j = 0; j < vargsai.size(); j++) {
+        of << setw(ilgis) << left << vargsai[j].pavarde << " " << setw(ilgis) << left << vargsai[j].vardas << "       ";
+        if (rakt == 1) {
+            of << setw(ilgis) << left << galutrez1[j] << "      ";
+            of << setw(ilgis) << left << mediang[j] << endl;
+        } else if (rakt == 2) {
+            of << setw(ilgis) << left << galutrezg[j] << "      ";
+            of << setw(ilgis) << left << median1[j] << endl;
+        }
+    }
+    of.close();
+
+    ofstream oif("galva.txt", ios::app);
+    oif << fixed << setprecision(2);
+    for (size_t j = 0; j < galva.size(); j++) {
+        oif << setw(ilgis) << left << galva[j].pavarde << " " << setw(ilgis) << left << galva[j].vardas << "       ";
+        if (rakt == 1) {
+            oif << setw(ilgis) << left << galutrez2[j] << "      ";
+            oif << setw(ilgis) << left << mediang[j] << endl;
+        } else if (rakt == 2) {
+            oif << setw(ilgis) << left << galutrezg[j] << "      ";
+            oif << setw(ilgis) << left << median2[j] << endl;
+        }
+    }
+    oif.close();
+}
+
+void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename) {
+    clearFiles();
+    const int ilgis = 20;
+    const int chunkSize = 100000;
+
+    ifstream inf(filename);
+    string firstline;
+    getline(inf, firstline);
+    studentas tempstud;
+    int rakt;
+    
+    vector<double> galutrez1, galutrez2, galutrezg, median1, median2, mediang;
+    int processedCount = 0;
+    int chunkIndex = 0;
+
+    cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
+    cin >> rakt;
+
+    auto start = high_resolution_clock::now();
+
+    while (inf >> tempstud.vardas >> tempstud.pavarde) {
+        tempstud.nd.clear();
         tempstud.nd.resize(15);
         for (int j = 0; j < 15; j++) {
             inf >> tempstud.nd[j];
@@ -111,69 +151,55 @@ int readInt(const string& prompt) {
         } else {
             median_value = tempstud.nd[n / 2];
         }
-        if(rakt == 1)
-        {
-        if (galutinis < 5){
-            vargsai.push_back(tempstud);
-            galutrez1.push_back(galutinis);
+
+        if (rakt == 1) {
+            if (galutinis < 5) {
+                vargsai.push_back(tempstud);
+                galutrez1.push_back(galutinis);
+            } else {
+                galva.push_back(tempstud);
+                galutrez2.push_back(galutinis);
+            }
+            mediang.push_back(median_value);
+        } else if (rakt == 2) {
+            if (median_value < 5) {
+                vargsai.push_back(tempstud);
+                median1.push_back(median_value);
+            } else {
+                galva.push_back(tempstud);
+                median2.push_back(median_value);
+            }
+            galutrezg.push_back(galutinis);
         }
-        else if (galutinis >= 5){
-            galva.push_back(tempstud);
-            galutrez2.push_back(galutinis);
+
+        processedCount++;
+
+        if (processedCount % chunkSize == 0 || inf.peek() == EOF) {
+            processChunk(students, galutrez1, galutrez2, mediang, median1, median2, galutrezg, vargsai, galva, rakt, ilgis, ++chunkIndex);
+            galutrez1.clear();
+            galutrez2.clear();
+            galutrezg.clear();
+            median1.clear();
+            median2.clear();
+            mediang.clear();
+            vargsai.clear();
+            galva.clear();
         }
-        mediang.push_back(median_value);
-        }
-        else if(rakt == 2)
-        {
-        if (median_value < 5){
-            vargsai.push_back(tempstud);
-            median1.push_back(median_value);
-        }
-        else if (median_value >= 5){
-            galva.push_back(tempstud);
-            median2.push_back(median_value);
-        }
-        galutrezg.push_back(galutinis);
-        }
-        }
-        auto end = high_resolution_clock::now();
-        duration<double> diff = end-start;
-        cout << "Nuskaityti faila ir surusiuoti uztruko " << diff.count() << " s" << endl;
-        inf.close();
-        auto start2 = high_resolution_clock::now();
-        ofstream of("vargsai.txt");
-        of << setw(ilgis) << left << "Pavarde" << " " << setw(ilgis) << left << "Vardas" << "     " << setw(ilgis) << left << "Galutinis (Vid. ) / Galutinis (Med. )" << endl;
-        of << "..................................................................." << endl;
-        of << fixed << setprecision(2);
-        if(rakt == 1){
-        for (size_t j = 0; j < vargsai.size(); j++) {
-        of << setw(ilgis) << left << vargsai[j].pavarde << " " << setw(ilgis) << left << vargsai[j].vardas << "       " << setw(ilgis) << left << galutrez1[j] << "      " << setw(ilgis) << left << mediang[j] << endl;
-        }
-        }
-        else if(rakt == 2){
-        for (size_t j = 0; j < vargsai.size(); j++) {
-        of << setw(ilgis) << left << vargsai[j].pavarde << " " << setw(ilgis) << left << vargsai[j].vardas << "       " << setw(ilgis) << left << galutrezg[j] << "      " << setw(ilgis) << left << median1[j] << endl;
-        }
-        }
-        of.close();
-        ofstream oif("galva.txt");
-        oif << setw(ilgis) << left << "Pavarde" << " " << setw(ilgis) << left << "Vardas" << "     " << setw(ilgis) << left << "Galutinis (Vid. ) / Galutinis (Med. )" << endl;
-        oif << "..................................................................." << endl;
-        oif << fixed << setprecision(2);
-        if(rakt == 1){
-        for (size_t j = 0; j < galva.size(); j++) {
-        oif << setw(ilgis) << left << galva[j].pavarde << " " << setw(ilgis) << left << galva[j].vardas << "       " << setw(ilgis) << left << galutrez2[j] << "      " << setw(ilgis) << left << mediang[j] << endl;
-        }
-        }
-        if(rakt == 2){
-        for (size_t j = 0; j < galva.size(); j++) {
-        oif << setw(ilgis) << left << galva[j].pavarde << " " << setw(ilgis) << left << galva[j].vardas << "       " << setw(ilgis) << left << galutrezg[j] << "      " << setw(ilgis) << left << median2[j] << endl;
-        }
-        }
-        oif.close();
-        auto end2 = high_resolution_clock::now();
-        duration<double> diff2 = end2-start2;
-        cout << "Ivesti studentus i faila uztruko " << diff2.count() << " s" << endl;
+    }
+
+    // Process remaining data if it's less than the chunk size
+    if (processedCount % chunkSize != 0) {
+        processChunk(students, galutrez1, galutrez2, mediang, median1, median2, galutrezg, vargsai, galva, rakt, ilgis, ++chunkIndex);
+    }
+
+    auto end = high_resolution_clock::now();
+    duration<double> diff = end - start;
+    cout << "Nuskaityti faila ir surusiuoti uztruko " << diff.count() << " s" << endl;
+
+    inf.close();
+    cout << "Press Enter to continue...";
+    cin.ignore(); // Ignore previous newline
+    cin.get(); // Wait for user to press Enter
 }
     void skaityti(vector<studentas>& students, vector<double>& galrez, vector<double>& median) {
     int failas;
@@ -388,7 +414,7 @@ int readInt(const string& prompt) {
         pivot = median[high];
     }
 
-    int i = low - 1; // Index of smaller element
+    int i = low - 1;
 
     for (int j = low; j <= high - 1; j++) {
         double compare;
