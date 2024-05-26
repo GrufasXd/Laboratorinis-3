@@ -21,34 +21,29 @@ int main() {
     auto end = high_resolution_clock::now();
     duration<double> diff = end-start;
     cout << "Sukurti 1000 elementu faila uztruko " << diff.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas1.txt");
+    studrus(students, vargsai, galva, "failas1.txt",1000);
     auto start1 = high_resolution_clock::now();
     createfile("failas2.txt", 10000);
     auto end1 = high_resolution_clock::now();
     duration<double> diff1 = end1-start1;
     cout << "Sukurti 10000 elementu faila uztruko " << diff1.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas2.txt");
+    studrus(students, vargsai, galva, "failas2.txt",10000);
     auto start2 = high_resolution_clock::now();
     createfile("failas3.txt", 100000);
     auto end2 = high_resolution_clock::now();
     duration<double> diff2 = end2-start2;
     cout << "Sukurti 100000 elementu faila uztruko " << diff2.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas3.txt");
+    studrus(students, vargsai, galva, "failas3.txt",100000);
     auto start3 = high_resolution_clock::now();
     createfile("failas4.txt", 1000000);
     auto end3 = high_resolution_clock::now();
     duration<double> diff3 = end3-start3;
     cout << "Sukurti 1000000 elementu faila uztruko " << diff3.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas4.txt");
+    studrus(students, vargsai, galva, "failas4.txt", 1000000);
     auto start4 = high_resolution_clock::now();
-    createfile("failas5.txt", 10000000);
-    auto end4 = high_resolution_clock::now();
-    duration<double> diff4 = end4-start4;
-    cout << "Sukurti 10000000 elementu faila uztruko " << diff4.count() << " s" << endl;
-    studrus(students, galrez, median, vargsai, galva, "failas5.txt");
      bool correctInput = false;
 
-    while (!correctInput) {
+    /*while (!correctInput) {
         try {
             cout << "Ar norite duomenis generuoti / rasyti ranka - 1" << endl << "Ar norite duomenis skaityti is failo - 2" << endl;
             cin >> kodas;
@@ -92,7 +87,7 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
     }
-    auto endg = high_resolution_clock::now();
+    */auto endg = high_resolution_clock::now();
     duration<double> diffg = endg-startg;
     cout << "Visas kodas uztruko " << diffg.count() << " s" << endl;
     return 0;
