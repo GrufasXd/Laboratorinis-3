@@ -1,5 +1,5 @@
-main: deque.o funkcijosDeque.o
-	g++ -o main deque.o funkcijosDeque.o
+main_deque: deque.o funkcijosDeque.o
+	g++ -o main_deque deque.o funkcijosDeque.o
 
 deque.o: deque.cpp funkcijosDeque.h
 	g++ -c deque.cpp -o deque.o
@@ -8,4 +8,4 @@ funkcijosDeque.o: funkcijosDeque.cpp funkcijosDeque.h
 	g++ -c funkcijosDeque.cpp -o funkcijosDeque.o
 
 clean:
-	del *.o main
+	del *.o main_deque
