@@ -22,25 +22,25 @@ int main() {
     auto end = high_resolution_clock::now();
     duration<double> diff = end-start;
     cout << "Sukurti 1000 elementu faila uztruko " << diff.count() << " s" << endl;
-    studrus(students, vargsai, galva, "failas1.txt",1000);
+    studrus2(students, vargsai, galva, "failas1.txt",1000);
     auto start1 = high_resolution_clock::now();
     createfile("failas2.txt", 10000);
     auto end1 = high_resolution_clock::now();
     duration<double> diff1 = end1-start1;
     cout << "Sukurti 10000 elementu faila uztruko " << diff1.count() << " s" << endl;
-    studrus(students, vargsai, galva, "failas2.txt",10000);
+    studrus2(students, vargsai, galva, "failas2.txt",10000);
     auto start2 = high_resolution_clock::now();
     createfile("failas3.txt", 100000);
     auto end2 = high_resolution_clock::now();
     duration<double> diff2 = end2-start2;
     cout << "Sukurti 100000 elementu faila uztruko " << diff2.count() << " s" << endl;
-    studrus(students, vargsai, galva, "failas3.txt",100000);
+    studrus2(students, vargsai, galva, "failas3.txt",100000);
     auto start3 = high_resolution_clock::now();
     createfile("failas4.txt", 1000000);
     auto end3 = high_resolution_clock::now();
     duration<double> diff3 = end3-start3;
     cout << "Sukurti 1000000 elementu faila uztruko " << diff3.count() << " s" << endl;
-    studrus(students, vargsai, galva, "failas4.txt", 1000000);
+    studrus2(students, vargsai, galva, "failas4.txt", 1000000);
      bool correctInput = false;
 
     /*while (!correctInput) {
