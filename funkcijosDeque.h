@@ -12,8 +12,10 @@ struct studentas {
     std::deque<int> nd;
     int egzas;
 };
+void studrus2(deque<studentas>& students, deque<studentas>& vargsai, deque<studentas>& galva, const string& filename, int dydis);
 double calculateMedian(const studentas& s);
 double calculateFinalGrade(const studentas& s);
+void studrus1(deque<studentas>& students, deque<studentas>& vargsai, const string& filename, int dydis);
 void clearFiles();
 int partition(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
 void quickSort(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
