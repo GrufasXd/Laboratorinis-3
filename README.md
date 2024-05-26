@@ -45,6 +45,22 @@ Vector 1 strategijos laikai -
 
 <img width="576" alt="vector 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/9104f41e-d8b0-46fb-a77c-900f3088ff32">
 
+Vector 2 strategijos laikai -
+
+<img width="788" alt="vector 2 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/ae99dbb2-fc74-44e1-afd9-2c6045ce0be7">
+
+<img width="674" alt="vector 2 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/d8e8ed3f-c109-4875-96aa-17d045de9954">
+
+<img width="774" alt="vector 2 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/4465c24a-2675-47b6-bcfc-ae88d9805cb5">
+
+<img width="779" alt="vector 2 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/2c680986-1367-41f3-a344-758db8c0a16a">
+
+Vector 3 strategijos laikai -
+
+<img width="818" alt="vector 3 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/a3720b9b-f0ab-49e2-ae88-c1b3b68329d3">
+
+<img width="820" alt="vector 3 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/e767beb9-6dac-489c-9856-2d87f26ba9dd">
+
 List 1 strategijos laikai -
 
 <img width="786" alt="list 1 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/6d5e7ad1-c263-44da-b3d6-215183cb654c">
@@ -55,6 +71,22 @@ List 1 strategijos laikai -
 
 <img width="576" alt="list 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/17ab3254-cc37-42ae-af4f-1f0f0013b988">
 
+List 2 strategijos laikai - 
+
+<img width="786" alt="list 2 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/a5f827aa-57d3-4da2-963b-d20152c97da9">
+
+<img width="784" alt="list 2 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/8a1ff412-f2fa-4c6b-8e39-3461ccf40412">
+
+<img width="789" alt="list 2 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/fe2a2fa6-d19c-443f-8256-274ee13fcf8d">
+
+<img width="771" alt="list 2 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/b3e66905-f0ff-487e-b4a8-4c17d3a89af7">
+
+List 3 strategijos laikai -
+
+<img width="817" alt="list 3 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/09e3c301-100d-4e70-b1ef-e46aa7b35158">
+
+<img width="819" alt="list 3 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/53b8dc96-8ad7-4e49-879f-b858aa190d1d">
+
 Deque 1 strategijos laikai - 
 
 <img width="787" alt="deque 1 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/adee377f-4fce-441c-b92e-8abf74762d28">
@@ -64,6 +96,24 @@ Deque 1 strategijos laikai -
 <img width="788" alt="deque 1 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/86c373bd-9561-4f89-825e-d25cf25bbcce">
 
 <img width="788" alt="deque 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/f4654bd2-0b90-45eb-9bf1-af09c6d87050">
+
+Deque 2 strategijos laikai - 
+
+<img width="788" alt="deque 2 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/b4da068f-ccf2-48ed-ac5b-0bb39e5c65dd">
+
+<img width="785" alt="deque 2 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/a08be643-aece-465b-9751-f279591dd3b3">
+
+<img width="793" alt="deque 2 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/57a0c65f-c283-4de0-a171-d028c05aaca4">
+
+<img width="788" alt="deque 2 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/9fa5f018-2ee9-4d3e-a331-5414d1970849">
+
+Deque 3 strategijos laikai - 
+
+<img width="790" alt="deque 3 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/f47af7f0-2e38-4971-af34-508cde8593b0">
+
+<img width="783" alt="deque 3 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/e33c4068-870c-4955-a7e0-43a85cf3ae5c">
+
+<img width="817" alt="deque 3 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/84279e75-daaf-46cd-b054-7206d046e578">
 
 Sistemos parametrai - 
 SSD - SAMSUNG MZNLN256HAJQ-00007
