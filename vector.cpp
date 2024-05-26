@@ -1,5 +1,5 @@
 #include <iostream>
-#include "funkcijos.h"
+#include "funkcijosVector.h"
 #include <algorithm>
 #include <ctime>
 #include <chrono>
