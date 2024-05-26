@@ -1,5 +1,5 @@
-#ifndef FUNKCIJOS_H
-#define FUNKCIJOS_H
+#ifndef FUNKCIJOSVECTOR_H
+#define FUNKCIJOSVECTOR_H
 
 #include <string>
 #include <vector>
