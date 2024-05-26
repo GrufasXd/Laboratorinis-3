@@ -11,11 +11,12 @@ struct studentas {
     std::vector<int> nd;
     int egzas;
 };
+double calculateFinalGrade(const studentas& s);
+double calculateMedian(const studentas& s);
 void clearFiles();
-void processChunk(vector<studentas>& students, vector<double>& galutrez1, vector<double>& galutrez2, vector<double>& mediang, vector<double>& median1, vector<double>& median2, vector<double>& galutrezg, vector<studentas>& vargsai, vector<studentas>& galva, int rakt, int ilgis);
 int partition(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
 void quickSort(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
-void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename);
+void studrus(vector<studentas>& students, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename, int dydis);
 void createfile(const std::string& filename, const int& kiekis);
 void skaitymas(std::vector<studentas>& students, std::vector<double>& galrez, std::vector<double>& median);
 void rasytiranka(std::vector<studentas>& students, std::vector<double>& galrez, std::vector<double>& median);
