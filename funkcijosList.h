@@ -12,6 +12,8 @@ struct studentas {
     std::list<int> nd;
     int egzas;
 };
+void studrus2(list<studentas>& students, list<studentas>& vargsai, const string& filename, int dydis);
+void studrus1(list<studentas>& students, list<studentas>& vargsai, const string& filename, int dydis);
 void clearFiles();
 int partition(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
 void quickSort(vector<studentas>& students, vector<double>& galrez, vector<double>& median, int low, int high, int rusis);
