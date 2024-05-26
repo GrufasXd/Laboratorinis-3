@@ -1,4 +1,4 @@
-    #include "funkcijos.h"
+    #include "funkcijosVector.h"
     #include <iostream>
     #include <fstream>
     #include <algorithm>
