@@ -115,6 +115,10 @@ Deque 3 strategijos laikai -
 
 <img width="817" alt="deque 3 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/84279e75-daaf-46cd-b054-7206d046e578">
 
+Pirmam pre-release buvo atliekami testai su visais konteineriais tik 1 strategija. 
+Šiame pilname release buvo testuojamos papildomai 2 ir 3 strategijos. 2 Visiem konteinerių tipam - tokia pati. 3 strategija - patobulinta versija greitesnės strategijos iš pirmų dviejų pagal konteinerį.
+Su list konteineriu buvo patobulinta 2 strategija, o su vector ir deque konteineriais patobulinta 1 strategija.
+
 Sistemos parametrai - 
 SSD - SAMSUNG MZNLN256HAJQ-00007
 CPU - Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
