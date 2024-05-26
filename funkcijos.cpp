@@ -13,6 +13,16 @@
     using namespace std::chrono;
 
 void createfile(const string& filename, const int& kiekis) {
+    ifstream checkfile(filename);
+
+    // Check if the file is open, indicating that it already exists
+    if (checkfile.is_open()) {
+        cout << "Failas jau egzistuoja" << endl;
+        checkfile.close();
+        return;
+    }
+
+    // Proceed with file creation if it doesn't exist
     ofstream inf(filename);
 
     const int ilgis = 20;
@@ -22,12 +32,12 @@ void createfile(const string& filename, const int& kiekis) {
     }
     inf << setw(10) << left << "Egz." << endl;
 
-    for (int j = 1; j < kiekis+1; j++) {
-        inf << setw(ilgis) << left << "Vardas" + to_string(j) << " " << setw(ilgis) << left << "Pavarde" + to_string(j) << "     ";
+    for (int j = 1; j < kiekis + 1; j++) {
+        inf << setw(ilgis) << left << "Vardas" + to_string(j) << " " << setw(ilgis) << std::left << "Pavarde" + to_string(j) << "     ";
         for (int i = 0; i < 15; i++) {
             inf << setw(10) << left << rand() % 10 + 1;
         }
-        inf << setw(10) << left << rand() % 10 + 1 << endl;
+        inf << setw(10) << left << rand() % 10 + 1 << std::endl;
     }
 
     inf.close();
@@ -74,134 +84,144 @@ int readInt(const string& prompt) {
         int intB = stoi(numB);
 
         // Compare the numeric parts
-        return intA > intB;
+        return intA < intB;
     }
+    
 void clearFiles() {
-    ofstream of("vargsai.txt", ios::trunc);
-    of.close();
-    ofstream oif("galva.txt", ios::trunc);
-    oif.close();
+    ofstream ofs1("vargsai.txt", ios::trunc);
+    ofstream ofs2("galva.txt", ios::trunc);
+    ofs1.close();
+    ofs2.close();
 }
 
-void processChunk(vector<studentas>& students, vector<double>& galutrez1, vector<double>& galutrez2, vector<double>& mediang, vector<double>& median1, vector<double>& median2, vector<double>& galutrezg, vector<studentas>& vargsai, vector<studentas>& galva, int rakt, int ilgis, int chunkIndex) {
-    ofstream of("vargsai.txt", ios::app);
-    of << fixed << setprecision(2);
-    for (size_t j = 0; j < vargsai.size(); j++) {
-        of << setw(ilgis) << left << vargsai[j].pavarde << " " << setw(ilgis) << left << vargsai[j].vardas << "       ";
-        if (rakt == 1) {
-            of << setw(ilgis) << left << galutrez1[j] << "      ";
-            of << setw(ilgis) << left << mediang[j] << endl;
-        } else if (rakt == 2) {
-            of << setw(ilgis) << left << galutrezg[j] << "      ";
-            of << setw(ilgis) << left << median1[j] << endl;
-        }
-    }
-    of.close();
-
-    ofstream oif("galva.txt", ios::app);
-    oif << fixed << setprecision(2);
-    for (size_t j = 0; j < galva.size(); j++) {
-        oif << setw(ilgis) << left << galva[j].pavarde << " " << setw(ilgis) << left << galva[j].vardas << "       ";
-        if (rakt == 1) {
-            oif << setw(ilgis) << left << galutrez2[j] << "      ";
-            oif << setw(ilgis) << left << mediang[j] << endl;
-        } else if (rakt == 2) {
-            oif << setw(ilgis) << left << galutrezg[j] << "      ";
-            oif << setw(ilgis) << left << median2[j] << endl;
-        }
-    }
-    oif.close();
+double calculateFinalGrade(const studentas& s) {
+    double nd_sum = accumulate(s.nd.begin(), s.nd.end(), 0);
+    double vidurkis = nd_sum / s.nd.size();
+    return 0.4 * vidurkis + 0.6 * s.egzas;
 }
 
-void studrus(vector<studentas>& students, vector<double>& galrez, vector<double>& median, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename) {
+double calculateMedian(const studentas& s) {
+    vector<int> sorted_nd = s.nd;
+    sort(sorted_nd.begin(), sorted_nd.end());
+    int n = sorted_nd.size();
+    if (n % 2 == 0) {
+        return (sorted_nd[n / 2 - 1] + sorted_nd[n / 2]) / 2.0;
+    } else {
+        return sorted_nd[n / 2];
+    }
+}
+
+void studrus(vector<studentas>& students, vector<studentas>& vargsai, vector<studentas>& galva, const string& filename, int dydis) {
     clearFiles();
     const int ilgis = 20;
-    const int chunkSize = 100000;
-
     ifstream inf(filename);
     string firstline;
     getline(inf, firstline);
     studentas tempstud;
     int rakt;
-    
-    vector<double> galutrez1, galutrez2, galutrezg, median1, median2, mediang;
+    double nt = 0, st = 0, wt = 0, nereikt = 0;
+
+    vector<studentas> visistud;
     int processedCount = 0;
-    int chunkIndex = 0;
 
     cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
     cin >> rakt;
 
+    // Skaitom
     auto start = high_resolution_clock::now();
-
-    while (inf >> tempstud.vardas >> tempstud.pavarde) {
+    while (processedCount < dydis && inf >> tempstud.vardas >> tempstud.pavarde) {
         tempstud.nd.clear();
-        tempstud.nd.resize(15);
-        for (int j = 0; j < 15; j++) {
-            inf >> tempstud.nd[j];
+        for (int k = 0; k < 15; k++) {
+            int nd_val;
+            inf >> nd_val;
+            tempstud.nd.push_back(nd_val);
         }
         inf >> tempstud.egzas;
-        double nd_sum = accumulate(tempstud.nd.begin(), tempstud.nd.end(), 0);
-        double vidurkis = nd_sum / 15;
-        double galutinis = 0.4 * vidurkis + 0.6 * tempstud.egzas;
-        double median_value;
-        int n = tempstud.nd.size();
-        sort(tempstud.nd.begin(), tempstud.nd.end());
-        if (n % 2 == 0) {
-            median_value = (tempstud.nd[n / 2 - 1] + tempstud.nd[n / 2]) / 2.0;
-        } else {
-            median_value = tempstud.nd[n / 2];
-        }
-
-        if (rakt == 1) {
-            if (galutinis < 5) {
-                vargsai.push_back(tempstud);
-                galutrez1.push_back(galutinis);
-            } else {
-                galva.push_back(tempstud);
-                galutrez2.push_back(galutinis);
-            }
-            mediang.push_back(median_value);
-        } else if (rakt == 2) {
-            if (median_value < 5) {
-                vargsai.push_back(tempstud);
-                median1.push_back(median_value);
-            } else {
-                galva.push_back(tempstud);
-                median2.push_back(median_value);
-            }
-            galutrezg.push_back(galutinis);
-        }
-
+        visistud.push_back(tempstud);
         processedCount++;
-
-        if (processedCount % chunkSize == 0 || inf.peek() == EOF) {
-            processChunk(students, galutrez1, galutrez2, mediang, median1, median2, galutrezg, vargsai, galva, rakt, ilgis, ++chunkIndex);
-            galutrez1.clear();
-            galutrez2.clear();
-            galutrezg.clear();
-            median1.clear();
-            median2.clear();
-            mediang.clear();
-            vargsai.clear();
-            galva.clear();
-        }
     }
-
-    // Process remaining data if it's less than the chunk size
-    if (processedCount % chunkSize != 0) {
-        processChunk(students, galutrez1, galutrez2, mediang, median1, median2, galutrezg, vargsai, galva, rakt, ilgis, ++chunkIndex);
-    }
-
     auto end = high_resolution_clock::now();
     duration<double> diff = end - start;
-    cout << "Nuskaityti faila ir surusiuoti uztruko " << diff.count() << " s" << endl;
+    nt += diff.count();
+
+    // Sortinam
+    auto start100 = high_resolution_clock::now();
+    if (rakt == 1) {
+        sort(visistud.begin(), visistud.end(), [&](const studentas& a, const studentas& b) {
+            return calculateFinalGrade(a) < calculateFinalGrade(b);
+        });
+    } else if (rakt == 2) {
+        sort(visistud.begin(), visistud.end(), [&](const studentas& a, const studentas& b) {
+            return calculateMedian(a) < calculateMedian(b);
+        });
+    }
+    auto end100 = high_resolution_clock::now();
+    duration<double> diff100 = end100 - start100;
+    nereikt += diff100.count();
+
+    // Skaidom
+    auto start1 = high_resolution_clock::now();
+    for (const auto& stud : visistud) {
+        double finalGrade = calculateFinalGrade(stud);
+        double median = calculateMedian(stud);
+
+        if (rakt == 1) {
+            if (finalGrade < 5) {
+                vargsai.push_back(stud);
+            } else {
+                galva.push_back(stud);
+            }
+        } else if (rakt == 2) {
+            if (median < 5) {
+                vargsai.push_back(stud);
+            } else {
+                galva.push_back(stud);
+            }
+        }
+    }
+    auto end1 = high_resolution_clock::now();
+    duration<double> diff1 = end1 - start1;
+    st += diff1.count();
+
+    // Rasom
+    auto start2 = high_resolution_clock::now();
+    ofstream of("vargsai.txt", ios::app);
+    ofstream oif("galva.txt", ios::app);
+    if (of.is_open() && oif.is_open()) {
+        of << fixed << setprecision(2);
+        oif << fixed << setprecision(2);
+        for (const auto& stud : vargsai) {
+            of << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            of << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            of << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        for (const auto& stud : galva) {
+            oif << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            oif << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            oif << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        of.close();
+        oif.close();
+    } else {
+        cerr << "Error: Unable to open files for writing" << endl;
+    }
+    auto end2 = high_resolution_clock::now();
+    duration<double> diff2 = end2 - start2;
+    wt += diff2.count();
+
+    visistud.clear();
+    vargsai.clear();
+    galva.clear();
+    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
+    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
+    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
 
     inf.close();
     cout << "Press Enter to continue...";
-    cin.ignore(); // Ignore previous newline
-    cin.get(); // Wait for user to press Enter
+    cin.ignore();
+    cin.get();    // Wait for user to press Enter
 }
-    void skaityti(vector<studentas>& students, vector<double>& galrez, vector<double>& median) {
+    /*void skaityti(vector<studentas>& students, vector<double>& galrez, vector<double>& median) {
     int failas;
     bool fileSelected = false;
     while (!fileSelected) {
@@ -486,3 +506,4 @@ void quickSort(vector<studentas>& students, vector<double>& galrez, vector<doubl
         }
         return randomString;
     }
+*/
