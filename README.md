@@ -35,8 +35,38 @@ Failų kūrimas -
 
 <img width="576" alt="irdoymas 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/d236d610-268d-485c-a9f0-06691dc3f859">
 
+Vector 1 strategijos laikai - 
 
+<img width="786" alt="vector 1 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/83d2abe8-d3be-42fc-8d07-33b6ee4599bf">
 
+<img width="576" alt="vector 1 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/5354322c-06e6-4c78-9908-6787023072c2">
 
+<img width="632" alt="vector 1 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/ffbd03b4-8ecd-4c3d-8222-d22d0c9999ec">
 
+<img width="576" alt="vector 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/9104f41e-d8b0-46fb-a77c-900f3088ff32">
+
+List 1 strategijos laikai -
+
+<img width="786" alt="list 1 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/6d5e7ad1-c263-44da-b3d6-215183cb654c">
+
+<img width="576" alt="list 1 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/3b15981e-7475-41e0-91bf-f695e6eedd4b">
+
+<img width="784" alt="list 1 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/bae3df54-0296-440f-a80b-6d5de1e570d5">
+
+<img width="576" alt="list 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/17ab3254-cc37-42ae-af4f-1f0f0013b988">
+
+Deque 1 strategijos laikai - 
+
+<img width="787" alt="deque 1 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/adee377f-4fce-441c-b92e-8abf74762d28">
+
+<img width="784" alt="deque 1 2" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/99aa7557-4be8-4ac6-934b-176d0ab7b3f6">
+
+<img width="788" alt="deque 1 3" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/86c373bd-9561-4f89-825e-d25cf25bbcce">
+
+<img width="788" alt="deque 1 4" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/f4654bd2-0b90-45eb-9bf1-af09c6d87050">
+
+Sistemos parametrai - 
+SSD - SAMSUNG MZNLN256HAJQ-00007
+CPU - Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
+Instaliuoti Ramai - 16GB
 
