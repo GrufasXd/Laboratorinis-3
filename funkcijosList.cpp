@@ -235,6 +235,210 @@ void studrus(list<studentas>& students, list<studentas>& vargsai, list<studentas
     cin.get();    // Wait for user to press Enter
 }
 
+void studrus1(list<studentas>& students, list<studentas>& vargsai, const string& filename, int dydis) {
+    clearFiles();
+    const int ilgis = 20;
+    ifstream inf(filename);
+    string firstline;
+    getline(inf, firstline);
+    studentas tempstud;
+    int rakt;
+    double nt = 0, st = 0, wt = 0, nereikt = 0;
+
+    list<studentas> visistud;
+    int processedCount = 0;
+
+    cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
+    cin >> rakt;
+
+    // Skaitymas
+    auto start = high_resolution_clock::now();
+    while (processedCount < dydis && inf >> tempstud.vardas >> tempstud.pavarde) {
+        tempstud.nd.clear();
+        for (int k = 0; k < 15; k++) {
+            int nd_val;
+            inf >> nd_val;
+            tempstud.nd.push_back(nd_val);
+        }
+        inf >> tempstud.egzas;
+        visistud.push_back(tempstud);
+        processedCount++;
+    }
+    auto end = high_resolution_clock::now();
+    duration<double> diff = end - start;
+    nt += diff.count();
+
+    // Sortinam
+    auto start100 = high_resolution_clock::now();
+    if (rakt == 1) {
+        visistud.sort([&](const studentas& a, const studentas& b) {
+            return calculateFinalGrade(a) < calculateFinalGrade(b);
+        });
+    } else if (rakt == 2) {
+        visistud.sort([&](const studentas& a, const studentas& b) {
+            return calculateMedian(a) < calculateMedian(b);
+        });
+    }
+    auto end100 = high_resolution_clock::now();
+    duration<double> diff100 = end100 - start100;
+    nereikt += diff100.count();
+
+    // Skaidymas duomenu
+    auto start1 = high_resolution_clock::now();
+    for (auto it = visistud.begin(); it != visistud.end(); /* no increment */) {
+        double finalGrade = calculateFinalGrade(*it);
+        double median = calculateMedian(*it);
+
+        if ((rakt == 1 && finalGrade < 5) || (rakt == 2 && median < 5)) {
+            vargsai.push_back(*it);
+            it = visistud.erase(it);  // Erase and get next iterator
+        } else {
+            ++it;
+        }
+    }
+    auto end1 = high_resolution_clock::now();
+    duration<double> diff1 = end1 - start1;
+    st += diff1.count();
+
+    // Rasymas
+    auto start2 = high_resolution_clock::now();
+    ofstream of("vargsai.txt", ios::app);
+    ofstream oif("galva.txt", ios::app);
+    if (of.is_open() && oif.is_open()) {
+        of << fixed << setprecision(2);
+        oif << fixed << setprecision(2);
+        for (const auto& stud : vargsai) {
+            of << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            of << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            of << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        for (const auto& stud : visistud) {
+            oif << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            oif << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            oif << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        of.close();
+        oif.close();
+    } else {
+        cerr << "Error: Unable to open files for writing" << endl;
+    }
+    auto end2 = high_resolution_clock::now();
+    duration<double> diff2 = end2 - start2;
+    wt += diff2.count();
+
+    visistud.clear();
+    vargsai.clear();
+    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
+    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
+    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
+    //cout << "Rasymas i failus uztruko " << wt << " s" << endl;
+
+    inf.close();
+    cout << "Press Enter to continue...";
+    cin.ignore();
+    cin.get();    // Wait for user to press Enter
+}
+
+void studrus2(list<studentas>& students, list<studentas>& vargsai, const string& filename, int dydis) {
+    clearFiles();
+    const int ilgis = 20;
+    ifstream inf(filename);
+    string firstline;
+    getline(inf, firstline);
+    studentas tempstud;
+    int rakt;
+    double nt = 0, st = 0, wt = 0, nereikt = 0;
+
+    list<studentas> visistud;
+    int processedCount = 0;
+
+    cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
+    cin >> rakt;
+
+    // Skaitymas
+    auto start = high_resolution_clock::now();
+    while (processedCount < dydis && inf >> tempstud.vardas >> tempstud.pavarde) {
+        tempstud.nd.clear();
+        for (int k = 0; k < 15; k++) {
+            int nd_val;
+            inf >> nd_val;
+            tempstud.nd.push_back(nd_val);
+        }
+        inf >> tempstud.egzas;
+        visistud.push_back(tempstud);
+        processedCount++;
+    }
+    auto end = high_resolution_clock::now();
+    duration<double> diff = end - start;
+    nt += diff.count();
+
+    // Sortinam
+    auto start100 = high_resolution_clock::now();
+    if (rakt == 1) {
+        visistud.sort([&](const studentas& a, const studentas& b) {
+            return calculateFinalGrade(a) < calculateFinalGrade(b);
+        });
+    } else if (rakt == 2) {
+        visistud.sort([&](const studentas& a, const studentas& b) {
+            return calculateMedian(a) < calculateMedian(b);
+        });
+    }
+    auto end100 = high_resolution_clock::now();
+    duration<double> diff100 = end100 - start100;
+    nereikt += diff100.count();
+
+    // Skaidymas duomenu
+    auto start1 = high_resolution_clock::now();
+    auto partition_point = partition(visistud.begin(), visistud.end(), [&](const studentas& stud) {
+        if (rakt == 1) {
+            return calculateFinalGrade(stud) < 5;
+        } else if (rakt == 2) {
+            return calculateMedian(stud) < 5;
+        }
+        return false;  // Should never reach here
+    });
+    vargsai.splice(vargsai.end(), visistud, visistud.begin(), partition_point);
+    auto end1 = high_resolution_clock::now();
+    duration<double> diff1 = end1 - start1;
+    st += diff1.count();
+    // Rasymas
+    auto start2 = high_resolution_clock::now();
+    ofstream of("vargsai.txt", ios::app);
+    ofstream oif("galva.txt", ios::app);
+    if (of.is_open() && oif.is_open()) {
+        of << fixed << setprecision(2);
+        oif << fixed << setprecision(2);
+        for (const auto& stud : vargsai) {
+            of << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            of << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            of << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        for (const auto& stud : visistud) {
+            oif << setw(ilgis) << left << stud.pavarde << " " << setw(ilgis) << left << stud.vardas << "       ";
+            oif << setw(ilgis) << left << calculateFinalGrade(stud) << "      ";
+            oif << setw(ilgis) << left << calculateMedian(stud) << endl;
+        }
+        of.close();
+        oif.close();
+    } else {
+        cerr << "Error: Unable to open files for writing" << endl;
+    }
+    auto end2 = high_resolution_clock::now();
+    duration<double> diff2 = end2 - start2;
+    wt += diff2.count();
+
+    visistud.clear();
+    vargsai.clear();
+    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
+    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
+    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
+    //cout << "Rasymas i failus uztruko " << wt << " s" << endl;
+
+    inf.close();
+    cout << "Press Enter to continue...";
+    cin.ignore();
+    cin.get();    // Wait for user to press Enter
+}
 
     /*void skaityti(vector<studentas>& students, vector<double>& galrez, vector<double>& median) {
     int failas;
