@@ -1,22 +1,23 @@
 #include <iostream>
-#include "funkcijosVector.h"
+#include "funkcijosDeque.h"
 #include <algorithm>
 #include <ctime>
 #include <chrono>
 #include <functional>
+#include <deque>
 using namespace std;
 using namespace std::chrono;
 int main() {
     srand(time(nullptr));
     auto startg = high_resolution_clock::now();
-    vector<studentas> students;
-    vector<studentas> vargsai;
-    vector<studentas> galva;
-    vector<double> galrez;
-    vector<double> median;
+    deque<studentas> students;
+    deque<studentas> vargsai;
+    deque<studentas> galva;
+    deque<double> galrez;
+    deque<double> median;
     int kodas;
     int rusis;
-    int par;
+    int par = 0;
     auto start = high_resolution_clock::now();
     createfile("failas1.txt", 1000);
     auto end = high_resolution_clock::now();

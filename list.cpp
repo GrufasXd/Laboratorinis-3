@@ -1,19 +1,20 @@
 #include <iostream>
-#include "funkcijosVector.h"
+#include "funkcijosList.h"
 #include <algorithm>
 #include <ctime>
 #include <chrono>
 #include <functional>
+#include <list>
 using namespace std;
 using namespace std::chrono;
 int main() {
     srand(time(nullptr));
     auto startg = high_resolution_clock::now();
-    vector<studentas> students;
-    vector<studentas> vargsai;
-    vector<studentas> galva;
-    vector<double> galrez;
-    vector<double> median;
+    list<studentas> students;
+    list<studentas> vargsai;
+    list<studentas> galva;
+    list<double> galrez;
+    list<double> median;
     int kodas;
     int rusis;
     int par;
@@ -32,7 +33,7 @@ int main() {
     else if(par == 2)
     studrus1(students, vargsai, "failas1.txt",1000);
     else if(par == 3)
-    studrus2(students, vargsai, galva, "failas1.txt",1000);
+    studrus2(students, vargsai, "failas1.txt",1000);
     auto start1 = high_resolution_clock::now();
     createfile("failas2.txt", 10000);
     auto end1 = high_resolution_clock::now();
@@ -48,7 +49,7 @@ int main() {
     else if(par == 2)
     studrus1(students, vargsai, "failas2.txt",10000);
     else if(par == 3)
-    studrus2(students, vargsai, galva, "failas2.txt",10000);
+    studrus2(students, vargsai, "failas2.txt",10000);
     auto start2 = high_resolution_clock::now();
     createfile("failas3.txt", 100000);
     auto end2 = high_resolution_clock::now();
@@ -64,7 +65,7 @@ int main() {
     else if(par == 2)
     studrus1(students, vargsai, "failas3.txt",100000);
     else if(par == 3)
-    studrus2(students, vargsai, galva, "failas3.txt",100000);
+    studrus2(students, vargsai, "failas3.txt",100000);
     auto start3 = high_resolution_clock::now();
     createfile("failas4.txt", 1000000);
     auto end3 = high_resolution_clock::now();
@@ -80,10 +81,10 @@ int main() {
     else if(par == 2)
     studrus1(students, vargsai, "failas4.txt",1000000);
     else if(par == 3)
-    studrus2(students, vargsai, galva, "failas4.txt",1000000);
-     bool correctInput = false;
+    studrus2(students, vargsai, "failas4.txt",1000000);
+     /*bool correctInput = false;
 
-    /*while (!correctInput) {
+    while (!correctInput) {
         try {
             cout << "Ar norite duomenis generuoti / rasyti ranka - 1" << endl << "Ar norite duomenis skaityti is failo - 2" << endl;
             cin >> kodas;

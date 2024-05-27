@@ -1,0 +1,11 @@
+main_list: list.o funkcijosList.o
+	g++ -o main_list list.o funkcijosList.o
+
+list.o: list.cpp funkcijosList.h
+	g++ -c list.cpp -o list.o
+
+funkcijosList.o: funkcijosList.cpp funkcijosList.h
+	g++ -c funkcijosList.cpp -o funkcijosList.o
+
+clean:
+	rm -f *.o main_list

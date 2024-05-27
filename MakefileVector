@@ -1,0 +1,11 @@
+main_vector: vector.o funkcijosVector.o
+	g++ -o main_vector vector.o funkcijosVector.o
+
+vector.o: vector.cpp funkcijosVector.h
+	g++ -c vector.cpp -o vector.o
+
+funkcijosVector.o: funkcijosVector.cpp funkcijosVector.h
+	g++ -c funkcijosVector.cpp -o funkcijosVector.o
+
+clean:
+	del *.o main_vector
