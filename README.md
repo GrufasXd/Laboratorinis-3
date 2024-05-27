@@ -5,6 +5,34 @@ Jeigu viskas buvo įrašyta teisingai, programa pasileis ir prašys pasirinkti r
 Programa nuskaitys sukurtą failą, surušiuos jį pagal pasirinktą kriterijų ir viską išves į 2 naujus failus vargsai.txt ir galva.txt(galva.txt - rodo kriterijų atitinkančius studentus kurių mediana arba vidurkis yra didesnis arba lygus 5, o vargsai.txt rodys studentus kurių mediana arba vidurkis yra mažesnis už 5) ir lauks kol jūs paspausite "Enter" mygtuką. Kol laukiate galite atsidaryti failus vargsai.txt ir galva.txt ir patikrinti arba apžvelgti rūšiavimą.
 Kai programa baigs rūšiuoti paskutinį failą bus rodomas kiek laiko užtruko visas kodas.
 
+Makefile atsisiuntimas - 
+
+1 žingsnis - Įdiekite MinGW paketų tvarkyklę. tai galite padaryti šios nuorodos pagalba https://sourceforge.net/projects/mingw/  ir paspaudę mygtuką "Install"
+
+2 -žingsnis - Nustatykite vietą, kur norite įdiegti MinGW paketų tvarkyklę. Kai naršyklės viršuje rodys, kad siuntimas baigtas, 2 kart paspauskit ant atsisiųsto failo.
+
+3 -žingsnis - Atsidariusiam programos lange spauskite "Install".
+
+4 - žingsnis - Paspausti pasirinkimo laukelį prie kurio parašyta "... also install support for graphical user interface"
+
+5 - žingsnis - Laukti kol atisiųs MinGW.
+
+6 - žingsnis - Eikite į „C“ diską, atidarykite „MinGW“ aplanką ir suraskite „mingw-get.exe“ failą. Nukopijuokite failo vietą.
+
+7 - žingsnis - Apačioje, pradiniame meniu, ieškokite „Environment Variables“ ir atidarykite juos.
+
+8 - žingsnis - Paspauskite „Environment Variables“ mygtuką, kad nustatytumėte kelią aplinkos kintamuosiuose.
+
+9 - žingsnis - Iš „System Variables“ (sistemos kintamųjų) panelės pasirinkite „Path“ ir paspauskite „Edit“ mygtuką.
+
+10 - žingsis - Po to, paspauskite „New“ mygtuką ir įklijuokite nukopijuotą kelią į Path lauką. Tada spauskite „Ok“ mygtuką.
+
+11 - žingsnis: Pradiniame meniu ieškokite „CMD“ ir atidarykite komandų eilutę.
+
+12 - žingsnis - Tada, vykdykite pateiktą komandą, kad įdiegtumėte make į Windows: "mingw-get install mingw32-make".
+
+13 - žingsnis - Patikrinkite make komandos įdiegimą tikrindami jos versiją: "mingw32-make --version" Jeigu po šios komandos matote instaliuotą versiją, vadinasi viską padarėte gerai.
+
 Programas laikas, su sukurtais failais -
 
 <img width="576" alt="irdouasnmd 1" src="https://github.com/GrufasXd/Laboratorinis-1/assets/147091694/edb2dbe7-1bbd-449b-b648-966e7daa2ec6">
