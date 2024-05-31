@@ -134,3 +134,11 @@ SSD - SAMSUNG MZNLN256HAJQ-00007
 CPU - Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
 Instaliuoti Ramai - 16GB
 
+Programos greitis naudojant vektoriu ir struktūrą su pačia greičiausia strategija:
+
+<img width="789" alt="ob 0 struct" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/79c05fac-8af8-4e57-92bb-9d0bef73ff89">
+
+Programos greitis naudojant vektoriu ir klasę su pačia greičiausia strategija:
+
+<img width="788" alt="ob 0 class" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/b4f63e05-643f-4da0-a958-5cbb38853df7">
+
