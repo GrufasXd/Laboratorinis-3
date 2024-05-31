@@ -1,0 +1,13 @@
+OPTIMIZE = -O3
+
+main_class: class.o studentas.o
+	g++ $(OPTIMIZE) -o main_class class.o studentas.o
+
+class.o: class.cpp studentas.h
+	g++ $(OPTIMIZE) -c class.cpp -o class.o
+
+studentas.o: studentas.cpp studentas.h
+	g++ $(OPTIMIZE) -c studentas.cpp -o studentas.o
+
+clean:
+	del *.o main_class
