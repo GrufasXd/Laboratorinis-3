@@ -34,7 +34,7 @@ public:
 
     istream& readStudent(std::istream& is);
 
-    // Setters
+    // Setteriai
     void setVardas(const string& v) { vardas = v; }
     void setPavarde(const string& p) { pavarde = p; }
     void setEgzas(int e) { egzas = e; }
