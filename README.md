@@ -142,3 +142,6 @@ Programos greitis naudojant vektoriu ir klasę su pačia greičiausia strategija
 
 <img width="788" alt="ob 0 class" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/b4f63e05-643f-4da0-a958-5cbb38853df7">
 
+Lentelė, kurioje nurodomi greičio skirtumai naudojant skirtingas strukturas:
+
+
