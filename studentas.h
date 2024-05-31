@@ -21,7 +21,7 @@ public:
     //Konstruktoriai ir destruktorius
     Studentas() : egzas(0) { }
     Studentas(std::istream& is) { readStudent(is); }
-    ~Studentas() = default;
+    ~Studentas() {};
 
     // Getteriai
     inline string getVardas() const { return vardas; }
