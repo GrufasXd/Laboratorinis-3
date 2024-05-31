@@ -22,7 +22,7 @@ public:
     Studentas(std::istream& is) { readStudent(is); }
     ~Studentas() = default;
 
-    // Getters
+    // Getteriai
     inline string getVardas() const { return vardas; }
     inline string getPavarde() const { return pavarde; }
     inline vector<int> getNd() const { return nd; }
