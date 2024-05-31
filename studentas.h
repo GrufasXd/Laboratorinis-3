@@ -18,6 +18,7 @@ private:
     int egzas;
 
 public:
+    //Konstruktoriai ir destruktorius
     Studentas() : egzas(0) { }
     Studentas(std::istream& is) { readStudent(is); }
     ~Studentas() = default;
