@@ -39,7 +39,6 @@ public:
     void setPavarde(const string& p) { pavarde = p; }
     void setEgzas(int e) { egzas = e; }
     void addNd(int n) { nd.push_back(n); }
-    friend std::istream& operator>>(std::istream& is, Studentas& student);
 };
 
 void studrus2(std::vector<Studentas>& students, std::vector<Studentas>& vargsai, std::vector<Studentas>& galva, const std::string& filename, int dydis);
