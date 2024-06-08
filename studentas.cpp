@@ -27,8 +27,7 @@ void printStudentState(const Studentas& student, const string& name) {
 // Copy assignment operator
 Studentas& Studentas::operator=(const Studentas& s) {
     if (this != &s) {
-        vardas = s.vardas;
-        pavarde = s.pavarde;
+        Zmogus::operator=(s);
         nd = s.nd;
         egzas = s.egzas;
     }
@@ -38,11 +37,28 @@ Studentas& Studentas::operator=(const Studentas& s) {
 // Move assignment operator
 Studentas& Studentas::operator=(Studentas&& s) noexcept {
     if (this != &s) {
-        vardas = move(s.vardas);
-        pavarde = move(s.pavarde);
+        Zmogus::operator=(move(s));
         nd = move(s.nd);
         egzas = s.egzas;
         s.egzas = 0;
+    }
+    return *this;
+}
+
+// Copy assignment operator
+Zmogus& Zmogus::operator=(const Zmogus& o) {
+    if (this != &o) {
+        vardas = o.vardas;
+        pavarde = o.pavarde;
+    }
+    return *this;
+}
+
+// Move assignment operator
+Zmogus& Zmogus::operator=(Zmogus&& z) noexcept {
+    if (this != &z) {
+        vardas = std::move(z.vardas);
+        pavarde = std::move(z.pavarde);
     }
     return *this;
 }
