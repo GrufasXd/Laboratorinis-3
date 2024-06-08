@@ -165,5 +165,6 @@ Greičio skirtumai tarp 1.1 versijos klasės ir 1.2 versijos klasės su perdengt
 
 Visos programos laiko skirtumas tarp šių dviejų versijų:
 
+<img width="576" alt="lentele2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/e1578099-7367-4f30-ab58-533556e6b833">
 
-Įvesties ir išvesties metodai perdengti studrus(studentų rūšiavimo ir skirstymo į 2 grupes) funkcijai. Vadinasi duomenys buvo nuskaitomi ir įrašomi į failus šių operatorių dėka.
+Įvesties ir išvesties operatoriai perdengti studrus(studentų rūšiavimo ir skirstymo į 2 grupes) funkcijai. Vadinasi duomenys buvo nuskaitomi ir įrašomi į failus šių operatorių dėka.
