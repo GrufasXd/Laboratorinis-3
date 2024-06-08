@@ -18,7 +18,7 @@ int main() {
     int rusis;
     int par;
     // Demonstruojami "Rule of five" operatoriai
-    // Inicializuojam studenta1
+    // Inicializuojam studentas1
     Studentas student1(10); 
     student1.setVardas("Jonas");
     student1.setPavarde("Jonaitis");
@@ -71,6 +71,12 @@ int main() {
     printStudentState(student5, "studentas5 (po move assignment is studentas2)");
     printStudentState(student2, "studentas2 (po move assignment)");
 
+    student1.~Studentas();
+    student2.~Studentas();
+    student3.~Studentas();
+    student4.~Studentas();
+    student5.~Studentas();
+    
     /*auto start = high_resolution_clock::now();
     createfile("failas1.txt", 1000);
     auto end = high_resolution_clock::now();
