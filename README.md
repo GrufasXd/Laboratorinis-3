@@ -168,3 +168,10 @@ Visos programos laiko skirtumas tarp šių dviejų versijų:
 <img width="576" alt="lentele2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/e1578099-7367-4f30-ab58-533556e6b833">
 
 Įvesties ir išvesties operatoriai perdengti studrus(studentų rūšiavimo ir skirstymo į 2 grupes) funkcijai. Vadinasi duomenys buvo nuskaitomi ir įrašomi į failus šių operatorių dėka.
+
+1.5 versija:
+Abstrakčios klasės Zmogus realizacijos įrodymas (žmogaus tipo objektų kurti negalima):
+
+<img width="783" alt="irdoymas kad negalima daryti Zmogus klases objektu" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/b86443fb-510e-4e9a-8564-180856e62109">
+
+
