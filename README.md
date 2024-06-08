@@ -134,6 +134,7 @@ SSD - SAMSUNG MZNLN256HAJQ-00007
 CPU - Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
 Instaliuoti Ramai - 16GB
 
+1.1 versija:
 Programos greitis naudojant vektoriu ir struktūrą su pačia greičiausia strategija:
 
 <img width="789" alt="ob 0 struct" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/79c05fac-8af8-4e57-92bb-9d0bef73ff89">
@@ -146,3 +147,23 @@ Lentelė, kurioje nurodomi greičio skirtumai naudojant skirtingas strukturas:
 
 ![image_2024-05-31_142854782](https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/20a39760-7091-48a9-8021-72fc413a7029)
 
+1.2 versija:
+"Rule of five" metodų pavyzdys:
+
+<img width="780" alt="rule of five 1" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/11a4e1a1-9ded-4aff-bfe5-f6fede8b9a93">
+
+<img width="780" alt="rule of five 2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/c23f64fe-8f16-4a12-8f3c-68e63cbf76d0">
+
+Greičio skirtumai tarp 1.1 versijos klasės ir 1.2 versijos klasės su perdengtais įvesties ir išvesties operatoriais(lyginimai atliekami su 100 tūkst. duomenų failu ir 1mil. duomenų failu):
+1.1 versijos klasė:
+
+<img width="788" alt="ob 0 class" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/277ad54a-6090-4ef5-bf40-061ffd734945">
+
+1.2 versijos klasė su perdengtais įvesties ir išvesties operatoriais:
+
+<img width="776" alt="input output test" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/22a873c5-4ddd-4883-80e1-2818b0c2af70">
+
+Visos programos laiko skirtumas tarp šių dviejų versijų:
+
+
+Įvesties ir išvesties metodai perdengti studrus(studentų rūšiavimo ir skirstymo į 2 grupes) funkcijai. Vadinasi duomenys buvo nuskaitomi ir įrašomi į failus šių operatorių dėka.
