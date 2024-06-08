@@ -174,4 +174,13 @@ Abstrakčios klasės Zmogus realizacijos įrodymas (žmogaus tipo objektų kurti
 
 <img width="783" alt="irdoymas kad negalima daryti Zmogus klases objektu" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/b86443fb-510e-4e9a-8564-180856e62109">
 
+Po Zmogus klasės sukūrimo veikiantys "Rule of five" metodai:
+
+<img width="781" alt="rof1" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/76aae102-0d39-4784-94c6-49b2cc92b484">
+
+<img width="780" alt="rof2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/c51f7b0d-4ea8-4544-b548-130ed90eb1f1">
+
+Patikrinti įvesties ir išvesties metodai po Zmogus klasės sukūrimo:
+
+<img width="780" alt="in out irod po pakeit" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/8a841323-c028-47fc-8d9b-fdfc2caa656a">
 
