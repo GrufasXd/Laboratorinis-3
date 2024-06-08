@@ -10,27 +10,61 @@
 
 using namespace std;
 
-class Studentas {
-private:
+class Zmogus 
+{
+protected:
     string vardas;
     string pavarde;
+    int amzius;
+public:
+    Zmogus() = default;
+    Zmogus(const string& vardas, const string& pavarde) : vardas(vardas), pavarde(pavarde) {}
+    virtual ~Zmogus() = default;
+        
+    // Getteriai
+    inline string getVardas() const { return vardas; }
+    inline string getPavarde() const { return pavarde; }
+
+    // Setteriai
+    virtual void setVardas(const string& v) = 0;
+    virtual void setPavarde(const string& p) = 0;
+
+    // Copy constructor
+    Zmogus(const Zmogus& o) : vardas(o.vardas), pavarde(o.pavarde) {}
+    
+    // Move constructor
+    Zmogus(Zmogus&& o) noexcept : vardas(move(o.vardas)), pavarde(move(o.pavarde)) {}
+        
+    // Copy assignment operator
+    Zmogus& operator=(const Zmogus& o);
+
+    // Move assignment operator
+    Zmogus& operator=(Zmogus&& z) noexcept;
+};
+
+class Studentas: public Zmogus {
+private:
     vector<int> nd;
     int egzas;
 
 public:
     // Constructors
-    Studentas() : egzas(0) {}
+    Studentas() : Zmogus(), egzas(0) {}
+    Studentas(const string& vardas, const string& pavarde, int egzas = 0) 
+        : Zmogus(vardas, pavarde), egzas(egzas) {}
     Studentas(std::istream& is) { readStudent(is); }
-    Studentas(int s) : egzas(s) {}
+    Studentas(int s) : Zmogus(), egzas(s) {}
 
     // Copy constructor
-    Studentas(const Studentas& s) : vardas(s.vardas), pavarde(s.pavarde), nd(s.nd), egzas(s.egzas) {}
+    Studentas(const Studentas& s) : Zmogus(s.vardas, s.pavarde), nd(s.nd), egzas(s.egzas) {}
 
     // Move constructor
-    Studentas(Studentas&& s) noexcept : vardas{std::move(s.vardas)}, pavarde{std::move(s.pavarde)}, egzas{s.egzas}, nd{std::move(s.nd)} {
+    Studentas(Studentas&& s) noexcept : Zmogus(move(s)), nd(move(s.nd)), egzas(s.egzas) {
         s.egzas = 0;
     }
 
+    //Naudojamas patikrinimui
+    //~Studentas() { cout << "Sunaikintas " << vardas << " " << pavarde << " kurio egzamino rezultatas " << egzas << endl;}
     ~Studentas() {}
 
     // Copy assignment operator
@@ -39,19 +73,18 @@ public:
     Studentas& operator=(Studentas&& s) noexcept;
 
     // Getters
-    inline string getVardas() const { return vardas; }
-    inline string getPavarde() const { return pavarde; }
     inline vector<int> getNd() const { return nd; }
     inline int getEgzas() const { return egzas; }
 
+    //Calculate funkcijos
     double calculateFinalGrade() const;
     double calculateMedian() const;
 
     istream& readStudent(std::istream& is);
 
     // Setters
-    void setVardas(const string& v) { vardas = v; }
-    void setPavarde(const string& p) { pavarde = p; }
+    void setVardas(const string& v) override { vardas = v; }
+    void setPavarde(const string& p) override { pavarde = p; }
     void setEgzas(int e) { egzas = e; }
     void addNd(int n) { nd.push_back(n); }
 
