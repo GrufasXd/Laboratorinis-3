@@ -12,10 +12,6 @@
     using namespace std;
     using namespace std::chrono;
 
-std::istream& operator>>(std::istream& is, Studentas& student) {
-    return student.readStudent(is);
-}
-
 void createfile(const string& filename, const int& kiekis) {
     ifstream checkfile(filename);
 
