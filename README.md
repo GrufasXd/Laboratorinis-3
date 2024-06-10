@@ -1,7 +1,7 @@
 Atsisiuntus pateikta aplankalą reikia jį atidaryti programavimo aplinkoje, pvz (VS code).
 Programavimo aplinkos terminale parašyti "make -f MakefileVector", "make -f MakefileList", "make -f MakefileDeque" arba "make -f MakefileClass" norint sukompiliuoti atitinkamai, vector, list, deque arba class failus.
 Tada parašyti "./main_vector", "./main_list", "./main_deque" arba "./main_class" tam pačiam terminale norint paleisti programą veikiančią su atitinkamais konteineriais.
-Jeigu viskas buvo įrašyta teisingai, programa pasileis ir prašys pasirinkti rūšiavimo strategiją - 1, 2 ar 3 kurią lengvai galite pasirinkti paspaudę atitinkamą skaičių. Pasirinkus strategiją galėsite pasirinkti studentų rūšiavimo kriterijų(pagal galutinį pažymių vidurkį, arba pagal medianą) prieš tai parodydama kiek laiko užtruko sukurti failą (kadangi failai įeina į atsisiųstą aplankalą laikas bus 0 sec).
+Jeigu viskas buvo įrašyta teisingai, programa pasileis ir prašys pasirinkti rūšiavimo strategiją - 1, 2 ar 3 kurią lengvai galite pasirinkti paspaudę atitinkamą skaičių. Pasirinkus strategiją galėsite pasirinkti studentų rūšiavimo kriterijų(pagal galutinį pažymių vidurkį, arba pagal medianą) prieš tai parodydama kiek laiko užtruko sukurti failą.
 Programa nuskaitys sukurtą failą, surušiuos jį pagal pasirinktą kriterijų ir viską išves į 2 naujus failus vargsai.txt ir galva.txt(galva.txt - rodo kriterijų atitinkančius studentus kurių mediana arba vidurkis yra didesnis arba lygus 5, o vargsai.txt rodys studentus kurių mediana arba vidurkis yra mažesnis už 5) ir lauks kol jūs paspausite "Enter" mygtuką. Kol laukiate galite atsidaryti failus vargsai.txt ir galva.txt ir patikrinti arba apžvelgti rūšiavimą.
 Kai programa baigs rūšiuoti paskutinį failą bus rodomas kiek laiko užtruko visas kodas.
 
@@ -134,7 +134,23 @@ SSD - SAMSUNG MZNLN256HAJQ-00007
 CPU - Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz
 Instaliuoti Ramai - 16GB
 
-1.1 versija:
+Versija v.pradinė: Sukurtas main.cpp failas kurį paleidus programa nuskaito vartotojo įvedamus duomenis, t.y. - studentų skaičių, studento vardą, studento pavardę, pažymių kiekį, pažymius priklausančius nuo pažymių kiekio ir egzamino rezultatą. Kai įvedami visų studentų duomenys programa ekrane parodys lentelę kurioje rodomos sklitys - "Pavarde", "Vardas", "Galutinis (Vid. )" (galutinis pažymių vidurkis) ir "Galutinis (Med. )" (pažymių mediana). Galutinis balas ir mediana pateikiami dviejų skaičių po kablelio tikslumu. Stundentų duomenys įvedami naudojant struktūrą ir masyvus.
+
+Versija v0.1: Papildytas main.cpp failas iš v.pradinė versijos. Paleidus programą ekrane pasirodo meniu su pasirinkimais: Viska rasyti ranka - 1 Generuoti tik pazymius - 2 Generuoti ir pazymius ir studentu vardus, pavardes - 3 Baigti darba - 4 Pasirinkus viską rašyti ranka - programos veikimas toks pat kaip ir v.pradinėje versijoje, išskyrus tai, kad programai nereikia iš anksto žinoti kiek yra studentų, nes visi studentų duomenys yra laikomi dinaminėje atmintyje kurią pastoviai didiname po kiekvieno naujo įrašo. Pasirinkus generuoti tik pažymius, programos veikimas toks pat išskyrus tai, kad pažymių pačiam rašyti nereikia. Pasirinkus generuoti ir pažymius ir studentų vardus, pavardes bus viskas generuojama atsitiktinai išskyrus egzamino pažymį. Pasirinkus "Baigti darba" programa rodys visus įvestus studentus. Kaip anksčiau minėjau duomenys yra laikomi dinaminėje atmintyje. Taip pat šioje versijoje buvo sukurtas naujas failas pavadinimu vector.cpp. Jame vykdomi tie patys veiksmai kaip ir atnaujintoje main.cpp failo versijoje išskyrus tai, kad visi masyvai buvo pakeisti į vektorius.
+
+Versija v0.2: Nuo šios versijos buvo atnaujinamas tik vector.cpp failas. Šioje versijoje buvo sukurti 4 nauji failai - kursiokai1.txt (10 tūkst. duom.), kursiokai2.txt (100 tūkst. duom.), kursiokai3.txt (1 mil. duom.) ir outputas.txt (skirtas surušiuotų duomenų įrašymui). Jų struktūra tokia pati. Įdėtas pasirinkimas nuskaityti duomenis iš failo. Paleidus programą matoma lentelė: Ar norite duomenis generuoti / rasyti ranka - 1 Ar norite duomenis skaityti is failo - 2 ir pasirinkus duomenis skaityti iš failo rodoma kita lentelė: Is kurio failo skaityti duomenis? 10k duomenu - 1 100k duomenu - 2 1mil duomenu - 3 Pasirinkus atitinkamą skaičių iš to failo bus skaitomi duomenys. Po šios operacijos bus rodoma kita lentelė: Kaip norite kad butu surusiuoti duomenis? Pagal varda - 1 Pagal pavarde - 2 Galutini pazymiu vidurki - 3 Galutini pagal mediana - 4 Pasirinkus skaičių duomenys bus rušiuojami pagal atitinkamą parametrą. Duomenys faile outputas.txt bus surušiuoti didėjimo tvarka. Po rušiavimo rodoma paskutinė lentelė: Ar duomenis spausdinti ekrane - 1 Ar duomenis spausdint faile - 2 Vėlgi, pasirinkus 1 arba 2, duomenys bus spausdinami ekrane arba faile.
+
+Versija v0.3: Šioje versijoje atsirado 3 nauji failai: funkcijos.cpp, funkcijos.h ir Makefile. funkcijos.h - faile yra funkcijų naudojamų programoje prototipai ir struktūra. funkcijos.cpp - failas sudarytas iš funkcijų realizacijų. Makefile - programos make failas atsakingas už programos paleidimą. vector.cpp buvo atnaujintas, jame liko tik main funkcija. Taip pat programoje kur tikslinga buvo panaudotas išimčių valdymas. Programa kompiliuojama į terminalą rašant žodį "make". Po kompiliavimo programą galima paleisti rašant "./main".
+
+Versija v0.4: Sukurta nauja failų kūrimo funkcija, su kuria sugeneruoti 5 nauji failai - failas1.txt (1 tūkst. duom.), failas2.txt (10 tūkst. duom.), failas3.txt (100 tūkst. duom.), failas4.txt (1 mil. duom.) ir failas5.txt (10 mil. duom.). Sugeneruoti studentai yra grupuojami į vargšiukus ir galvočius (pagal pažymių vidurkį arba medianą - priklausomai nuo vartotojo pasirinkimo) naujos studrus funkcijos pagalba. Jei vidurkis arba mediana (priklausomai nuo pasirinkimo) yra mažesnis nei 5, studentas yra laikomas vargšiuku, o jei didesnis nei 5 - studentas laikomas galvočiumi. Po rūšiavimo, sugrupuoti studentai yra išvedami į 2 naujus failus - vargsai.txt (vargšiukų failas) ir galva.txt (galvočių failas). Taip pat programoje matuojamas laikas - failų kūrimo, duomenų nuskaitymo iš failo, studentų grupavimo į 2 grupes, rašymo į failus, visos programos laikas.
+
+Versija v1.0 - pre release: Sukurti 8 nauji failai: 4 - failai programai veikti su list konteineriu (funkcijosList.cpp, funkcijosList.h, list.cpp, MakefileList) ir kiti 4 - failai programai veikti su deque konteineriu (funkcijosDeque.cpp, funkcijosDeque.h, deque.cpp, MakefileDeque). Šioje versijoje buvo atliekamas greičio testavimas tarp visų 3 konteinerių - vector, list ir deque.
+
+Versija v1.0 - galutinė: Sukurtos 2 naujos funkcijos pademonstruoti 2 naujas studentų dalijimo į 2 kategorijas strategijas: studrus1 ir studrus2. studrus1 strategija - vietoj to, kad saugotumėme studentus 2 konteineriuose (galva ir vargsai), paliekam tik 1 konteinerį - vargsai. Rūšiuodami su šia strategija ir radę vargšiuką - jį dedame į naują vargšų konteinerį ir ištriname iš visų studentų konteinerio. Tada visų studentų konteineryje lieka tik galvočiai. studrus2 strategija - patobulinta greičiausia (pagal konteinerį) strategija. Vector ir Deque atveju buvo patobulintos 1 strategija (studrus), o List atveju patobulinta 2 strategija (studrus1).
+
+Versija v1.1:
+Atliktas repozitorijos klonavimas iš v1.0 versijos. Šioje versijoje programoje vietoj struktūros pradėta naudoti klasę. Darytas greičio testavimas tarp programos su struktūra ir programos su klase. Testavimas buvo atliekamas su vektoriumi ir 100 tūkst. bei 1 mil. dydžio failais. Vėliau, testavimas buvo atliekamas ir su optimizavimo "flagais" tarp šių dviejų versijų.
+
 Programos greitis naudojant vektoriu ir struktūrą su pačia greičiausia strategija:
 
 <img width="789" alt="ob 0 struct" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/79c05fac-8af8-4e57-92bb-9d0bef73ff89">
@@ -148,6 +164,8 @@ Lentelė, kurioje nurodomi greičio skirtumai naudojant skirtingas strukturas:
 ![image_2024-05-31_142854782](https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/20a39760-7091-48a9-8021-72fc413a7029)
 
 1.2 versija:
+Realizuoti visi "Rule of five" bei įvesties ir išvesties operatoriai turimai Studentas klasei.
+Įvesties ir išvesties operatoriai perdengti funkcijai studrus (taip pat studrus1 ir studrus2), vadinasi duomenys yra vedami iš failų ir po darbo su jais išvedami į failus.
 "Rule of five" metodų pavyzdys:
 
 <img width="780" alt="rule of five 1" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/11a4e1a1-9ded-4aff-bfe5-f6fede8b9a93">
