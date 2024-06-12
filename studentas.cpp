@@ -12,8 +12,55 @@
     using namespace std;
     using namespace std::chrono;
 
-std::istream& operator>>(std::istream& is, Studentas& student) {
-    return student.readStudent(is);
+void printStudentState(const Studentas& student, const string& name) {
+    cout << name << ":" << endl;
+    cout << "  Vardas: " << student.getVardas() << endl;
+    cout << "  Pavarde: " << student.getPavarde() << endl;
+    cout << "  Egzas: " << student.getEgzas() << endl;
+    cout << "  ND: ";
+    for (int grade : student.getNd()) {
+        cout << grade << " ";
+    }
+    cout << endl;
+}
+
+// Copy assignment operator
+Studentas& Studentas::operator=(const Studentas& s) {
+    if (this != &s) {
+        Zmogus::operator=(s);
+        nd = s.nd;
+        egzas = s.egzas;
+    }
+    return *this;
+}
+
+// Move assignment operator
+Studentas& Studentas::operator=(Studentas&& s) noexcept {
+    if (this != &s) {
+        Zmogus::operator=(move(s));
+        nd = move(s.nd);
+        egzas = s.egzas;
+        s.egzas = 0;
+    }
+    return *this;
+}
+
+// Copy assignment operator
+Zmogus& Zmogus::operator=(const Zmogus& o) {
+    if (this != &o) {
+        vardas = o.vardas;
+        pavarde = o.pavarde;
+    }
+    return *this;
+}
+
+// Move assignment operator
+Zmogus& Zmogus::operator=(Zmogus&& z) noexcept {
+    if (this != &z) {
+        vardas = std::move(z.vardas);
+        pavarde = std::move(z.pavarde);
+    }
+    return *this;
 }
 
 void createfile(const string& filename, const int& kiekis) {
@@ -145,7 +192,9 @@ void studrus(vector<Studentas>& students, vector<Studentas>& vargsai, vector<Stu
     // Skaitom
     auto start = high_resolution_clock::now();
     while (processedCount < dydis && inf >> tempstud) {
-        visistud.push_back(tempstud);
+        Studentas newStudent;
+        newStudent = tempstud; // copy assignment 
+        visistud.push_back(std::move(newStudent)); // move
         processedCount++;
     }
     auto end = high_resolution_clock::now();
@@ -249,7 +298,9 @@ void studrus1(vector<Studentas>& students, vector<Studentas>& vargsai, const str
     // Skaitom
     auto start = high_resolution_clock::now();
     while (processedCount < dydis && inf >> tempstud) {
-        visistud.push_back(tempstud);
+        Studentas newStudent;
+        newStudent = tempstud; // copy assignment 
+        visistud.push_back(std::move(newStudent)); // move
         processedCount++;
     }
     auto end = high_resolution_clock::now();
@@ -354,7 +405,9 @@ void studrus2(vector<Studentas>& students, vector<Studentas>& vargsai, vector<St
     // Skaitom
     auto start = high_resolution_clock::now();
     while (processedCount < dydis && inf >> tempstud) {
-        visistud.push_back(tempstud);
+        Studentas newStudent;
+        newStudent = tempstud; // copy assignment 
+        visistud.push_back(std::move(newStudent)); // move
         processedCount++;
     }
     auto end = high_resolution_clock::now();

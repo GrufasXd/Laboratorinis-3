@@ -163,3 +163,43 @@ Lentelė, kurioje nurodomi greičio skirtumai naudojant skirtingas strukturas:
 
 ![image_2024-05-31_142854782](https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/20a39760-7091-48a9-8021-72fc413a7029)
 
+1.2 versija:
+Realizuoti visi "Rule of five" bei įvesties ir išvesties operatoriai turimai Studentas klasei.
+Įvesties ir išvesties operatoriai perdengti funkcijai studrus (taip pat studrus1 ir studrus2), vadinasi duomenys yra vedami iš failų ir po darbo su jais išvedami į failus.
+"Rule of five" metodų pavyzdys:
+
+<img width="780" alt="rule of five 1" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/11a4e1a1-9ded-4aff-bfe5-f6fede8b9a93">
+
+<img width="780" alt="rule of five 2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/c23f64fe-8f16-4a12-8f3c-68e63cbf76d0">
+
+Greičio skirtumai tarp 1.1 versijos klasės ir 1.2 versijos klasės su perdengtais įvesties ir išvesties operatoriais(lyginimai atliekami su 100 tūkst. duomenų failu ir 1mil. duomenų failu):
+1.1 versijos klasė:
+
+<img width="788" alt="ob 0 class" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/277ad54a-6090-4ef5-bf40-061ffd734945">
+
+1.2 versijos klasė su perdengtais įvesties ir išvesties operatoriais:
+
+<img width="776" alt="input output test" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/22a873c5-4ddd-4883-80e1-2818b0c2af70">
+
+Visos programos laiko skirtumas tarp šių dviejų versijų:
+
+<img width="576" alt="lentele2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/e1578099-7367-4f30-ab58-533556e6b833">
+
+Įvesties ir išvesties operatoriai perdengti studrus(studentų rūšiavimo ir skirstymo į 2 grupes) funkcijai. Vadinasi duomenys buvo nuskaitomi ir įrašomi į failus šių operatorių dėka.
+
+1.5 versija:
+Sukurta nauja Zmogus klasė, kuri veikia kaip bazinė klasė mūsų sukurtai Studentas klasei. Bazinė klasė Zmogus yra abstrakčioji - vadinasi jos tipo objektų kurti negalima. Po šios klasės sukūrimo buvo testuojama ar veikia Studentas klasės "Rule of five" metodai, bei įvesties ir išvesties operatoriai.
+Abstrakčios klasės Zmogus realizacijos įrodymas (žmogaus tipo objektų kurti negalima):
+
+<img width="783" alt="irdoymas kad negalima daryti Zmogus klases objektu" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/b86443fb-510e-4e9a-8564-180856e62109">
+
+Po Zmogus klasės sukūrimo veikiantys "Rule of five" metodai:
+
+<img width="781" alt="rof1" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/76aae102-0d39-4784-94c6-49b2cc92b484">
+
+<img width="780" alt="rof2" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/c51f7b0d-4ea8-4544-b548-130ed90eb1f1">
+
+Patikrinti įvesties ir išvesties metodai po Zmogus klasės sukūrimo:
+
+<img width="780" alt="in out irod po pakeit" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/8a841323-c028-47fc-8d9b-fdfc2caa656a">
+

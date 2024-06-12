@@ -17,6 +17,66 @@ int main() {
     int kodas;
     int rusis;
     int par;
+    // Demonstruojami "Rule of five" operatoriai
+    // Inicializuojam studentas1
+    Studentas student1(10); 
+    student1.setVardas("Jonas");
+    student1.setPavarde("Jonaitis");
+    student1.addNd(9);
+    student1.addNd(8);
+    student1.addNd(10);
+
+    // Spausdinam studentas1
+    printStudentState(student1, "studentas1");
+
+    // Naudojam copy constructor
+    Studentas student2 = student1;
+    printStudentState(student2, "studentas2 (po kopijavimo is studentas1, studentas2 pries tai neegzistavo)");
+
+    // Pakeiciam studentas2 informacija ir ziurim ar pasikeis nuo to studentas1 informacija
+    student2.setEgzas(20);
+    student2.setVardas("Petras");
+    printStudentState(student1, "studentas1 (po studentas2 egzamino ir vardo pakeitimo)");
+    printStudentState(student2, "studentas2 (po egzamino ir vardo pakeitimo)");
+
+    // Naudojam move constructor
+    Studentas student3 = move(student1);
+    printStudentState(student3, "studentas3 (po move is studentas1, studentas3 pries tai neegzistuoja)");
+    printStudentState(student1, "studentas1 (po move operacijos)");
+
+    // Inicializuojam nauja studenta copy assignment operator panaudojimui
+    Studentas student4(20);
+    student4.setVardas("Antanas");
+    student4.setPavarde("Antanaitis");
+    student4.addNd(7);
+    student4.addNd(6);
+
+    printStudentState(student4, "studentas4 (pries copy assignment)");
+
+    // Naudojam copy assignment operator
+    student4 = student2;
+    printStudentState(student4, "studentas4 (po copy assignment is studentas2)");
+
+    // Naujas studentas move assignment operator panaudojimui
+    Studentas student5(30);
+    student5.setVardas("Kazys");
+    student5.setPavarde("Kazlauskas");
+    student5.addNd(10);
+    student5.addNd(10);
+
+    printStudentState(student5, "studentas5 (pries move assignment)");
+
+    //Naudojam move assignment operator
+    student5 = move(student2);
+    printStudentState(student5, "studentas5 (po move assignment is studentas2)");
+    printStudentState(student2, "studentas2 (po move assignment)");
+
+    student1.~Studentas();
+    student2.~Studentas();
+    student3.~Studentas();
+    student4.~Studentas();
+    student5.~Studentas();
+    
     /*auto start = high_resolution_clock::now();
     createfile("failas1.txt", 1000);
     auto end = high_resolution_clock::now();
