@@ -203,3 +203,64 @@ Patikrinti įvesties ir išvesties metodai po Zmogus klasės sukūrimo:
 
 <img width="780" alt="in out irod po pakeit" src="https://github.com/GrufasXd/Laboratorinis-2/assets/147091694/8a841323-c028-47fc-8d9b-fdfc2caa656a">
 
+v3.0:
+Mano Vector konteinerio tikrinimas per funkcijos pavyzdzius:
+1. Testuojamas konstruktorius su daug elementu. "Vector<int> v = {8, 4, 5, 9};"
+2. Testuojama push_back funkcija. "v.push_back(6);"
+3. Testuojamas priskyrimo operatorius. "v[2] = -1;"
+4. Testuojama v.size() funkcija. "cout << "Dydis " << v.size() << endl;"
+5. Testuojama v.clear() funkcija. "v.clear();"
+
+![image](https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/0a8e42ac-2fb1-482a-bf96-eb5240406539)
+
+Greičio spartos skirtumas tarp mano Vector konteinerio ir std::vector konteinerio naudojant push_back funkciją:
+
+10k elem. -
+
+<img width="777" alt="10k vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/b84b72eb-7d5b-454a-8e7c-056450618461">
+
+100k elem. -
+
+<img width="778" alt="100k vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/3827d87c-c6d3-4111-9dc6-fdb09b9888ad">
+
+1 mil. elem. - 
+
+<img width="776" alt="1mil vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/c2e1e7fd-7e38-43f8-9dde-1f76e8f980ff">
+
+10 mil. elem. - 
+
+<img width="777" alt="10mil vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/800c8820-e9ab-4694-a0ef-8bf86fa361f8">
+
+100 mil. elem. - 
+
+<img width="776" alt="100mil vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/6327fe1f-2c47-435e-9699-e40f503fa19c">
+
+Perskirstymu skirtumas tarp mano Vector konteinerio ir std::vector :
+
+<img width="778" alt="atminties perskirstymai" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/86c02c7d-ee34-4975-a1b0-a232bbf8a248">
+
+Palyginimas mano Vector konteinerio ir std::vector konteinerio greičio su studrus funkcija :
+
+100k duom. - 
+
+Mano Vector konteineris:
+
+<img width="780" alt="100k faillu mano vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/b98c7ea5-badb-49ac-b34a-67fb07bba7b9">
+
+std::vector :
+
+<img width="778" alt="100k std vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/2c47980a-b34f-476b-a499-39f32c6a5915">
+
+1mil duom. - 
+
+Mano Vector konteineris:
+
+<img width="766" alt="1 mil mano vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/5ae3a2ac-fd00-4aeb-8b65-62ec5b778601">
+
+std::vector :
+
+<img width="777" alt="1mil std vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/7bbac212-d364-4413-bd05-e6857209ae08">
+
+
+
+
