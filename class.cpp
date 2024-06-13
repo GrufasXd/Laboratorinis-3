@@ -8,17 +8,55 @@ using namespace std;
 using namespace std::chrono;
 int main() {
     srand(time(nullptr));
-    auto startg = high_resolution_clock::now();
-    vector<Studentas> students;
-    vector<Studentas> vargsai;
-    vector<Studentas> galva;
-    vector<double> galrez;
-    vector<double> median;
+    //auto startg = high_resolution_clock::now();
+    Vector<Studentas> students;
+    Vector<Studentas> vargsai;
+    Vector<Studentas> galva;
+    Vector<double> galrez;
+    Vector<double> median;
     int kodas;
     int rusis;
     int par;
     // Demonstruojami "Rule of five" operatoriai
     // Inicializuojam studentas1
+
+    Vector<int> v = {8, 4, 5, 9};
+    v.push_back(6);
+    v.push_back(9);
+    v[2] = -1;
+    for (int n : v)
+        std::cout << n << ' ';
+    std::cout << '\n';
+    cout << "Dydis " << v.size() << endl;
+    v.clear();
+    cout << "Dydis " << v.size() << endl;
+
+    int b = 0;
+    auto start7 = high_resolution_clock::now();
+    int sz = 100000000;
+    std::vector<int> v1;
+    for (int i = 1; i <= sz; i++){
+    v1.push_back(i);
+    if (v1.capacity() == v1.size())
+    b++;
+    }
+    auto end7 = high_resolution_clock::now();
+    duration<double> diff7 = end7-start7;
+    cout << "std::vector uztruko " << diff7.count() << " s" << "uzpildyti " << sz << " konteineri " << endl;
+    cout << "std::vector klase padare " << b << " atminties perskirstymu" << endl;
+
+    int c = 0;
+    auto start8 = high_resolution_clock::now();
+    Vector<int> v2;
+    for (int i = 1; i <= sz; i++){
+    v2.push_back(i);
+    if (v2.capacity() == v2.size())
+    c++;
+    }
+    auto end8 = high_resolution_clock::now();
+    duration<double> diff8 = end8-start8;
+    cout << "Mano Vector klase uztruko " << diff8.count() << " s" << "uzpildyti " << sz << " konteineri " << endl;
+    cout << "Mano Vector klase padare " << c << " atminties perskirstymu" << endl;
     Studentas student1(10); 
     student1.setVardas("Jonas");
     student1.setPavarde("Jonaitis");
@@ -135,6 +173,7 @@ int main() {
     cout << "2 strategija - spausti 2 " << endl;
     cout << "3 strategija - spausti 3 " << endl;
     cin >> par;
+    auto startg = high_resolution_clock::now();
     if(par == 1)
     studrus(students, vargsai, galva, "failas4.txt",1000000);
     else if(par == 2)
