@@ -262,5 +262,15 @@ std::vector :
 <img width="777" alt="1mil std vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/7bbac212-d364-4413-bd05-e6857209ae08">
 
 Prie šios versijos yra pridėti 2 failai norint atsisiųsti ir pasileisti programą - setup.exe ir Setup.msi
-
+1. Atsidarius programą reikia spausti žodį "Next >".
+2. Kitame puslapyje galima pasirinkti kur norite, kad būtu instaliuota programa. Jeigu instaliavimo kelio nepakeisite, programa bus instaliuojama į C:\Program Files (x86)\Vilniaus Universitetas\Dziugas-Kriukonis failą.
+3. Taip pat apačioje galima pasirinkti ar norite, kad programa būtu instaliuota tik jūsu paskyrai, ar visiems žmonėms kurie naudojasi jūsu kompiuteriu.
+4. Padares norimus pasirinkimus spauskite "Next >".
+5. Tada vėl "Next >" norėdami pradėti programos instaliavimą.
+6. Tada jūsu kompiuteris paprašys jūsu leisti programai daryti pakeitimus jūsu kompiuteryje. Tam, kad programa būtu įdiegta turite spausti "Taip " arba "Leisti ".
+7. Po šio paspaudimo programa bus įdiegta ir galite spausti "Close " mygtuką.
+8. Programą galėsite matyti savo Start meniu ir darbalaukyje.
+9. Atvėrus programą jūsu bus prašoma pasirinkti studentų rūšiavimo strategiją. Po strategijos pasirinkimo galėsite pasirinkti pagal kurį parametrą norite, kad būtu surūšiuoti studentai. Po šio pasirinkimo programa surūšiuos studentus ir rezultatus galėsite matyti C:\Program Files (x86)\Vilniaus Universitetas\Dziugas-Kriukonis aplankale failuose "galva.txt" ir "vargsai.txt".
+10. Norėdami ištrinti programą, galite nueiti į "Settings" > "Apps" > "Installed apps" > "Dziugas-Kriukonis" > Paspauskite 3 taškiukus > "Uninstall2 >> ir jeigu programa vėl rašys, "Ar norite, kad ši programa darytų pakeitimus jūsu kompiuteryje spauskite Taip arba Leisti.
+11. Po šio veiksmo programa bus ištrinta iš jūsu kompiuterio.
 
