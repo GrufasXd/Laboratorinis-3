@@ -151,7 +151,7 @@ double Studentas::calculateFinalGrade() const {
 }
 
 double Studentas::calculateMedian() const {
-    vector<int> sorted_nd = nd;
+    Vector<int> sorted_nd = nd;
     sort(sorted_nd.begin(), sorted_nd.end());
     int n = sorted_nd.size();
     if (n % 2 == 0) {
@@ -173,7 +173,7 @@ istream& Studentas::readStudent(istream& is) {
     return is;
 }
 
-void studrus(vector<Studentas>& students, vector<Studentas>& vargsai, vector<Studentas>& galva, const string& filename, int dydis) {
+void studrus(Vector<Studentas>& students, Vector<Studentas>& vargsai, Vector<Studentas>& galva, const string& filename, int dydis) {
     clearFiles();
     const int ilgis = 20;
     ifstream inf(filename);
@@ -183,7 +183,7 @@ void studrus(vector<Studentas>& students, vector<Studentas>& vargsai, vector<Stu
     int rakt;
     double nt = 0, st = 0, wt = 0, nereikt = 0;
 
-    vector<Studentas> visistud;
+    Vector<Studentas> visistud;
     int processedCount = 0;
 
     cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
@@ -269,17 +269,18 @@ void studrus(vector<Studentas>& students, vector<Studentas>& vargsai, vector<Stu
     visistud.clear();
     vargsai.clear();
     galva.clear();
-    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
-    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
-    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
+    cout << "Studentu skaitimas uztruko: " << nt << " s" << endl;
+    cout << "Studentu skirstymas i vargsus ir galva uztruko: " << st << " s" << endl;
+    cout << "Studentu surasymas i failus uztruko: " << wt << " s" << endl;
+    cout << "Studentu rusiavimas uztruko: " << nereikt << " s" << endl;
 
     inf.close();
-    cout << "Press Enter to continue...";
-    cin.ignore();
-    cin.get();
+    //cout << "Press Enter to continue...";
+    //cin.ignore();
+    //cin.get();
 }
 
-void studrus1(vector<Studentas>& students, vector<Studentas>& vargsai, const string& filename, int dydis) {
+void studrus1(Vector<Studentas>& students, Vector<Studentas>& vargsai, const string& filename, int dydis) {
     clearFiles();
     const int ilgis = 20;
     ifstream inf(filename);
@@ -289,7 +290,7 @@ void studrus1(vector<Studentas>& students, vector<Studentas>& vargsai, const str
     int rakt;
     double nt = 0, st = 0, wt = 0, nereikt = 0;
 
-    vector<Studentas> visistud;
+    Vector<Studentas> visistud;
     int processedCount = 0;
 
     cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
@@ -324,7 +325,7 @@ void studrus1(vector<Studentas>& students, vector<Studentas>& vargsai, const str
 
     // Skaidymas
     auto start1 = high_resolution_clock::now();
-    vector<bool> to_erase(visistud.size(), false);
+    Vector<bool> to_erase(visistud.size(), false);
 
     for (int i = 0; i < visistud.size(); i++) {
         const auto& stud = visistud[i];
@@ -376,17 +377,18 @@ void studrus1(vector<Studentas>& students, vector<Studentas>& vargsai, const str
 
     visistud.clear();
     vargsai.clear();
-    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
-    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
-    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
+    cout << "Studentu skaitimas uztruko: " << nt << " s" << endl;
+    cout << "Studentu skirstymas i vargsus ir galva uztruko: " << st << " s" << endl;
+    cout << "Studentu surasymas i failus uztruko: " << wt << " s" << endl;
+    cout << "Studentu rusiavimas uztruko: " << nereikt << " s" << endl;
 
     inf.close();
-    cout << "Press Enter to continue...";
-    cin.ignore();
-    cin.get();
+    //cout << "Press Enter to continue...";
+    //cin.ignore();
+    //cin.get();
 }
 
-void studrus2(vector<Studentas>& students, vector<Studentas>& vargsai, vector<Studentas>& galva, const string& filename, int dydis) {
+void studrus2(Vector<Studentas>& students, Vector<Studentas>& vargsai, Vector<Studentas>& galva, const string& filename, int dydis) {
     clearFiles();
     const int ilgis = 20;
     ifstream inf(filename);
@@ -396,7 +398,7 @@ void studrus2(vector<Studentas>& students, vector<Studentas>& vargsai, vector<St
     int rakt;
     double nt = 0, st = 0, wt = 0, nereikt = 0;
 
-    vector<Studentas> visistud;
+    Vector<Studentas> visistud;
     int processedCount = 0;
 
     cout << "Studentus rikiuoti pagal bendra vidurki - 1" << endl << "Studentus rikiuoti pagal mediana - 2" << endl;
@@ -474,12 +476,13 @@ void studrus2(vector<Studentas>& students, vector<Studentas>& vargsai, vector<St
     visistud.clear();
     vargsai.clear();
     galva.clear();
-    cout << "Nuskaiyti duomenis uztruko " << nt << " s" << endl;
-    cout << "Surusiuoti duomenis uztruko " << nereikt << " s" << endl;
-    cout << "Suskirstyti duomenis i 2 grupes uztruko " << st << " s" << endl;
+    cout << "Studentu skaitimas uztruko: " << nt << " s" << endl;
+    cout << "Studentu skirstymas i vargsus ir galva uztruko: " << st << " s" << endl;
+    cout << "Studentu surasymas i failus uztruko: " << wt << " s" << endl;
+    cout << "Studentu rusiavimas uztruko: " << nereikt << " s" << endl;
 
     inf.close();
-    cout << "Press Enter to continue...";
-    cin.ignore();
-    cin.get();
+    //cout << "Press Enter to continue...";
+    //cin.ignore();
+    //cin.get();
 }
