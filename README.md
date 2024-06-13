@@ -261,6 +261,6 @@ std::vector :
 
 <img width="777" alt="1mil std vec" src="https://github.com/GrufasXd/Laboratorinis-3/assets/147091694/7bbac212-d364-4413-bd05-e6857209ae08">
 
-
+Prie šios versijos yra pridėti 2 failai norint atsisiųsti ir pasileisti programą - setup.exe ir Setup.msi
 
 
